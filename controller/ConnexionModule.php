@@ -22,10 +22,17 @@ $resultat = null;
         if ($resultat!=NULL) {
               
                 $_SESSION["userID"] = $resultat["id"];
+                $_SESSION["userMail"] = $_POST["email"];
                 //echo'<meta http-equive="refresh" content=0; url="Location:../view/Accueil.php">'; 
                 echo'<br />Veuillez recliquer sur le bouton "Se connecter" pour vous connecter';  
                 echo '   '.$resultat["id"];
-                header('Location: ../view/Accueil.php');
+                ?>
+                 <script > 
+                    // Redirection vers la page d'accueil         
+                    setTimeout("location.href = '../view/Accueil.php';", 3000);           
+                </script>
+<?php
+                //header('Location: ../view/Accueil.php');
 
                 /*$admin = $bdd->query('SELECT admin  FROM users WHERE email = :email AND password = :password');
                     if($admin==1)
