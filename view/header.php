@@ -38,22 +38,22 @@
        
         if(!isset($_SESSION["userID"]) && $_SESSION["userID"]==NULL)
                 {
-                    echo "<li><a href=\"InscriptionConnexion.php\">Inscription/Connexion</a></li>";
+                    echo "<li><a href=\"../view/InscriptionConnexion.php\">Inscription/Connexion</a></li>";
                 }
  
         elseif (isset($_SESSION["userID"]) && $_SESSION["userID"])
                 {
-                    echo "<li><a href=\"PosterAnnonce.php\">Poster une annonce</a></li>";
-                    echo "<li><a href=\"MonCompte.php\">Mon compte</a></li>";
-                    echo "<li><a href=\"deco.php\">Déconnexion</a></li>";
+                    echo "<li><a href=\"../view/PosterAnnonce.php\">Poster une annonce</a></li>";
+                    echo "<li><a href=\"../view/MonCompte.php\">Mon compte</a></li>";
+                    echo "<li><a href=\"../view/deco.php\">Déconnexion</a></li>";
                 }
 
         elseif (isset($_SESSION["userID"]) && isset($_SESSION["adminID"]))
                 {
-                    echo "<li><a href=\"PosterAnnonce.php\">Poster une annonce</a></li>";
-                    echo "<li><a href=\"MonCompte.php\">Mon compte</a></li>";
-                    echo "<li><a href=\"Admin.php\">Administration</a></li>";
-                    echo "<li><a href=\"deco.php\">Déconnexion</a></li>";
+                    echo "<li><a href=\"../view/PosterAnnonce.php\">Poster une annonce</a></li>";
+                    echo "<li><a href=\"../view/MonCompte.php\">Mon compte</a></li>";
+                    echo "<li><a href=\"../view/Admin.php\">Administration</a></li>";
+                    echo "<li><a href=\"../view/deco.php\">Déconnexion</a></li>";
                 }
 ?>
                        

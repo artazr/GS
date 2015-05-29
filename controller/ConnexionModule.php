@@ -24,15 +24,9 @@ $resultat = null;
                 $_SESSION["userID"] = $resultat["id"];
                 $_SESSION["userMail"] = $_POST["email"];
                 //echo'<meta http-equive="refresh" content=0; url="Location:../view/Accueil.php">'; 
-                echo'<br />Veuillez recliquer sur le bouton "Se connecter" pour vous connecter';  
-                echo '   '.$resultat["id"];
-                ?>
-                 <script > 
-                    // Redirection vers la page d'accueil         
-                    setTimeout("location.href = '../view/Accueil.php';", 3000);           
-                </script>
-<?php
-                //header('Location: ../view/Accueil.php');
+                include('../view/Accueil.php');
+                //echo'<br />Vous venez de vous connecter, vous êtes l\'utilisateur numéro '.$resultat["id"]; 
+                //echo'<br /> Cliquez sur le bouton : <a href="../view/Accueil.php"><button>Accueil</button></a>';
 
                 /*$admin = $bdd->query('SELECT admin  FROM users WHERE email = :email AND password = :password');
                     if($admin==1)
