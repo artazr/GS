@@ -25,7 +25,7 @@ $resultat = null;
                 //echo'<meta http-equive="refresh" content=0; url="Location:../view/Accueil.php">'; 
                 echo'<br />Veuillez recliquer sur le bouton "Se connecter" pour vous connecter';  
                 echo '   '.$resultat["id"];
-                header('Location: ../Accueil.php');
+                header('Location: ../view/Accueil.php');
 
                 /*$admin = $bdd->query('SELECT admin  FROM users WHERE email = :email AND password = :password');
                     if($admin==1)

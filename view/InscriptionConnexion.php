@@ -47,7 +47,7 @@
             </div>
             <div>
                 <!-- Formulaire de connexion-->
-                <form method="post" action="InscriptionConnexion.php">
+                <form method="post" action="../controller/ConnexionModule.php">
                     <div>
                         <div>
                             <input type="email" class="text" name="email" placeholder="Email" />
