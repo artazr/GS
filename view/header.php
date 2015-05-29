@@ -40,21 +40,17 @@
                 {
                     echo "<li><a href=\"../view/InscriptionConnexion.php\">Inscription/Connexion</a></li>";
                 }
- 
         elseif (isset($_SESSION["userID"]) && $_SESSION["userID"])
                 {
                     echo "<li><a href=\"../view/PosterAnnonce.php\">Poster une annonce</a></li>";
-                    echo "<li><a href=\"../view/MonCompte.php\">Mon compte</a></li>";
+                    echo "<li><a href=\"../view/MonCompte.php\">".$_SESSION["userPrenom"]."</a></li>";
+                    if(isset($_SESSION["adminID"]) && $_SESSION["adminID"] == 1){
+                        echo "<li><a href=\"../view/Admin.php\">Administration</a></li>";
+                    }
                     echo "<li><a href=\"../view/deco.php\">Déconnexion</a></li>";
+                    
                 }
 
-        elseif (isset($_SESSION["userID"]) && isset($_SESSION["adminID"]))
-                {
-                    echo "<li><a href=\"../view/PosterAnnonce.php\">Poster une annonce</a></li>";
-                    echo "<li><a href=\"../view/MonCompte.php\">Mon compte</a></li>";
-                    echo "<li><a href=\"../view/Admin.php\">Administration</a></li>";
-                    echo "<li><a href=\"../view/deco.php\">Déconnexion</a></li>";
-                }
 ?>
                        
                 </ul>

@@ -7,7 +7,7 @@
             </div>
             <div>
                 <!-- Formulaire d'inscription-->
-                <form method="post" action="InscriptionConnexion.php">
+                <form method="post" action="../controller/InscriptionModule.php">
                    
                         <div>
                             <input type="text" class="text" name="nom" placeholder="Nom" />

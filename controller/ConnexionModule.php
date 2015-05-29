@@ -12,7 +12,7 @@ $resultat = null;
             // Criptage du mot de passe
             $password = sha1($_POST['password']);
             // Vérification des identifiants
-                $req = $bdd->prepare('SELECT id FROM users WHERE email = :email AND password = :password');
+                $req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE email = :email AND password = :password');
                 $req->execute(array(
                     'email' => $email,
                     'password' => $password));
@@ -23,18 +23,9 @@ $resultat = null;
               
                 $_SESSION["userID"] = $resultat["id"];
                 $_SESSION["userMail"] = $_POST["email"];
-                //echo'<meta http-equive="refresh" content=0; url="Location:../view/Accueil.php">'; 
+                $_SESSION["adminID"] = $resultat["admin"];
+                $_SESSION["userPrenom"] = $resultat["prenom"];
                 include('../view/Accueil.php');
-                //echo'<br />Vous venez de vous connecter, vous êtes l\'utilisateur numéro '.$resultat["id"]; 
-                //echo'<br /> Cliquez sur le bouton : <a href="../view/Accueil.php"><button>Accueil</button></a>';
-
-                /*$admin = $bdd->query('SELECT admin  FROM users WHERE email = :email AND password = :password');
-                    if($admin==1)
-                    {
-                        $_SESSION['adminID']= $admin; 
-                    }
-
-            $admin->closeCursor();*/
         }
 
         elseif (!$resultat)

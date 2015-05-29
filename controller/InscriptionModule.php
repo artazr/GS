@@ -38,9 +38,10 @@ $message=null;
         //Vérification de la similitude du mot de passe
         if (isset($_POST['valider']) && $_POST['password'] == $_POST['password1'])
             {
-
-                echo "Vous venez de vous inscrire, Bienvenue !! Un mail vient de vous être envoyé, cliquez sur le lien à l'intérieur pour confirmer votre inscription";
-
+echo "Vous venez de vous inscrire, Bienvenue !! Un mail vient de vous être envoyé, 
+cliquez sur le lien à l'intérieur pour confirmer votre inscription. <br />
+Vous allez être redirigé dans 5 secondes . . .";
+           
 				
 			 $to      = $email;
 		     $subject = 'confirmation de votre inscription';
@@ -50,8 +51,12 @@ $message=null;
 		     'X-Mailer: PHP/' . phpversion();
 		
 		     mail($to, $subject, $message, $headers);
-	                
-	                echo"mail envoyé";
+	                  ?>
+                <script > 
+                    // Redirection vers la page d'accueil         
+                    setTimeout("location.href = '../view/InscriptionConnexion.php';", 7000);           
+                </script>
+<?php   
 
             }
         //Vérification de la similitude du mot de passe
