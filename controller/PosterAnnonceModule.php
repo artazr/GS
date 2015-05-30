@@ -1,6 +1,11 @@
 <?php 
 //on inclut la page qui nous permet de nous connecter à la base de donnée
 include('../model/bdd.php');
+
+$maxsize= 2000000;
+$maxwidth = 300;
+$maxheight=300;
+$erreur = "";
     //Vérification de l'existence des variables
     if (!empty($_POST['title']) && !empty($_POST['name']) && !empty($_POST['category'])&& !empty($_POST['location']) && !empty($_POST['city']) && !empty($_POST['description']) )  
     {
@@ -10,7 +15,6 @@ include('../model/bdd.php');
               $location      = htmlspecialchars($_POST["location"]);
               $city      = htmlspecialchars($_POST["city"]);
               $description      = htmlspecialchars($_POST["description"]);
-              
         // Remplissage de la base de donnée          
         $req = $bdd->prepare('INSERT INTO annonce(title, name, category, location, city, description, date_mise_en_ligne) VALUES(:title, :name, :category, :location, :city, :description, CURDATE())');
         $req->execute(array(
@@ -21,116 +25,76 @@ include('../model/bdd.php');
             'city' => $city,
             'description'=> $description
             )); 
-            
-            
- 
-         
             //Vérification de la similitude du mot de passe
-        if (isset($_POST['upload']) && !empty($_POST['title']) && !empty($_POST['name'])&& !empty($_POST['category']) && !empty($_POST['location']) && !empty($_POST['city']) && !empty($_POST['description']))
+        if (!empty($_POST['title']) && !empty($_POST['name'])&& !empty($_POST['category']) && !empty($_POST['location']) && !empty($_POST['city']) && !empty($_POST['description']))
             {
-	            $content_dir = '../images'; // dossier où sera déplacé le fichier
+                if ($_FILES['icone']['error'] > 0) {$erreur = "Erreur lors du transfert";}
+                
+                if ($_FILES['icone']['size'] > $maxsize) {$erreur = "Le fichier est trop gros";}
 
-			    $tmp_file = $_FILES['fichier']['tmp_name'];
-			
-			    // on vérifie maintenant l'extension
-			    $type_file = $_FILES['fichier']['type'];
-			
-		    if( !strstr($type_file, 'jpg') && !strstr($type_file, 'jpeg') && !strstr($type_file, 'bmp') && !strstr($type_file, 'gif') )
-			    {
-			        exit("Le fichier n'est pas une image");
-			    }
-			
-			    // on copie le fichier dans le dossier de destination
-			    $name_file = $_FILES['fichier']['name'];
-			
-                echo"Votre Annonce à bien été Postée !";
+
+                $extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
+                //1. strrchr renvoie l'extension avec le point (« . »).
+                //2. substr(chaine,1) ignore le premier caractère de chaine.
+                //3. strtolower met l'extension en minuscules.
+                $extension_upload = strtolower(  substr(  strrchr($_FILES['icone']['name'], '.')  ,1)  );
+                   
+                if ( in_array($extension_upload,$extensions_valides) ) {$erreur =  "Extension correcte";}
+
+
+                $image_sizes = getimagesize($_FILES['icone']['tmp_name']);
                 
+                if ($image_sizes[0] > $maxwidth OR $image_sizes[1] > $maxheight) {$erreur = "Image trop grande";}
+                //Créer un dossier 
+                  mkdir('../images/$_SESSION["userPrenom"]', 0777, true);
+                 
+                //Créer un identifiant difficile à deviner
+                  $image_nom = rand()."-".$_FILES['icone']['tmp_name'];
+                //$nom = "avatars/{$id_membre}.{$extension_upload}";
+                $resultat = move_uploaded_file($_FILES['icone']['tmp_name'],$image_nom);
+                if ($resultat)
+                    $erreur = "Votre Annonce à bien été Postée ! ";
+       
+ $q = 'UPDATE annonce SET image_nom="'.$image_nom.'" WHERE id=LAST_INSERT_ID()';
+ $query=$bdd->query($q);
+       
+                       
+            }
+            elseif ( empty($_POST['title']))
+        
+            {  
+                $erreur = "Tu as oublié de rentrer un titre";
+            }
+            elseif (empty($_POST['name']))
+        
+            {
+                $erreur ="Tu as oublié de rentrer un nom";
+            }
+             elseif (empty($_POST['category']))
+        
+            {
+                $erreur ="Tu as oublié de rentrer la catégorie du produit";
+            }
+             elseif (empty($_POST['location']))
+        
+            {
+                $erreur ="Tu as oublié de rentrer la région dans laquelle sera disponible ton annonce";
+            }
+             elseif (empty($_POST['city']))
+        
+            {
+                $erreur ="Tu as oublié de rentrer la ville dans laquelle sera disponible ton annonce";
+            }
+            elseif (empty($_POST['description']))
+        
+            {
+                $erreur ="Tu as oublié de rentrer une description de ton annonce";
+            }
+            else
+            {
+                $erreur ="quelque chose ne vas pas !!";
                 
-                
-?>
-                <script > 
-                    // Redirection vers la page d'accueil         
-                    setTimeout("location.href = '../view/PosterAnnonce.php';", 3000);           
-                </script>
-<?php
-            }
-        //Vérification que les champs sont bien tous rempli
-              elseif (isset($_POST['valider']) && ($_POST['title'])==NULL)
-        
-            {
-                echo"Tu as oublié de rentrer un titre";
-?>
-                <script >
-                    // Redirection vers la page d'Inscription 
-                    setTimeout("location.href = '../view/PosterAnnonce.php';", 3000);
-                </script>
-<?php
-            }
-       elseif (isset($_POST['valider']) && empty($_POST['name']))
-        
-            {
-                echo"Tu as oublié de rentrer un nom";
-?>
-                <script >
-                    // Redirection vers la page d'Inscription 
-                    setTimeout("location.href = '../view/PosterAnnonce.php';", 3000);
-                </script>
-<?php
-            }
-             elseif (isset($_POST['valider']) && empty($_POST['category']))
-        
-            {
-                echo"Tu as oublié de rentrer la catégorie du produit";
-?>
-                <script >
-                    // Redirection vers la page d'Inscription 
-                    setTimeout("location.href = '../view/PosterAnnonce.php';", 3000);
-                </script>
-<?php
-            }
-             elseif (isset($_POST['valider']) && empty($_POST['location']))
-        
-            {
-                echo"Tu as oublié de rentrer la région dans laquelle sera disponible ton annonce";
-?>
-                <script >
-                    // Redirection vers la page d'Inscription 
-                    setTimeout("location.href = '../view/PosterAnnonce.php';", 3000);
-                </script>
-<?php
-            }
-             elseif (isset($_POST['valider']) && empty($_POST['city']))
-        
-            {
-                echo"Tu as oublié de rentrer la ville dans laquelle sera disponible ton annonce";
-?>
-                <script >
-                    // Redirection vers la page d'Inscription 
-                    setTimeout("location.href = '../view/PosterAnnonce.php';", 3000);
-                </script>
-<?php
-            }
-            elseif (isset($_POST['valider']) && empty($_POST['description']))
-        
-            {
-                echo"Tu as oublié de rentrer une description de ton annonce";
-?>
-                <script >
-                    // Redirection vers la page d'Inscription 
-                    setTimeout("location.href = '../view/PosterAnnonce.php';", 3000);
-                </script>
-<?php
-            }
-        else
-            {
-                echo"quelque chose ne vas pas !!";
-?>
-                <script >
-                    // Redirection vers la page d'Inscription 
-                    setTimeout("location.href = '../view/InscriptionConnexion.php';", 3000);
-                </script>
-<?php
             }
     }
-    }
+    include('../view/PosterAnnonce.php');
 ?>

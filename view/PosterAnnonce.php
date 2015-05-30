@@ -8,9 +8,11 @@
                 <h2>Formulaire de mise en ligne d'annonces:</h2>
                 <span>Mettez en ligne votre produit !</span> 
             </div>
+<?php echo $erreur; ?>
             <div >
-                <form method="post" action="../controller/PosterAnnonceModule.php">
-                    
+                <form method="post" >
+
+                   
                         
                             <input type="text" class="text" name="title" placeholder="Titre de l'annonce" />
                         
@@ -35,15 +37,23 @@
                         
                             <textarea type="text" class="text" name="description" placeholder="   Description"></textarea>
                             
-                           <input type="file" name="fichier" size="30">
+                            <p>
+                Ajoutez une photo de votre produit : <br />
+                <input type="file" name="monfichier" /><br />
+                
+                
+        </p>
                            
 							<br />
-							<br />
+							
                         
                    
                     <button type="submit" name="upload" value="Uploader">Poster</button>
                     <!-- Appel de la page php d'inscritpion -->
-                        <?php include('../controller/PosterAnnonceModule.php'); ?>
+                        
+                        <br /><br />
+                
+
                 </form>
             </div>
        

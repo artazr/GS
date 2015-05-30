@@ -51,12 +51,9 @@ Vous allez être redirigé dans 5 secondes . . .";
 		     'X-Mailer: PHP/' . phpversion();
 		
 		     mail($to, $subject, $message, $headers);
-	                  ?>
-                <script > 
-                    // Redirection vers la page d'accueil         
-                    setTimeout("location.href = '../view/InscriptionConnexion.php';", 7000);           
-                </script>
-<?php   
+
+             header ('Location: ../view/InscriptionConnexion.php');
+	            
 
             }
         //Vérification de la similitude du mot de passe

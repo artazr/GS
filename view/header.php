@@ -31,8 +31,8 @@
        
                 <ul>
                 
-                         <li><a href="Accueil.php" title="">Accueil</a></li>
-                        <li><a href="recherche.php" title="">Rechercher</a></li>
+                         <li><a href="../view/Accueil.php" title="">Accueil</a></li>
+                        <li><a href="../view/recherche.php" title="">Rechercher</a></li>
  
 <?php
        
@@ -42,7 +42,7 @@
                 }
         elseif (isset($_SESSION["userID"]) && $_SESSION["userID"])
                 {
-                    echo "<li><a href=\"../view/PosterAnnonce.php\">Poster une annonce</a></li>";
+                    echo "<li><a href=\"../controller/PosterAnnonceModule.php\">Poster une annonce</a></li>";
                     echo "<li><a href=\"../view/MonCompte.php\">".$_SESSION["userPrenom"]."</a></li>";
                     if(isset($_SESSION["adminID"]) && $_SESSION["adminID"] == 1){
                         echo "<li><a href=\"../view/Admin.php\">Administration</a></li>";

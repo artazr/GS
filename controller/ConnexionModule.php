@@ -25,7 +25,8 @@ $resultat = null;
                 $_SESSION["userMail"] = $_POST["email"];
                 $_SESSION["adminID"] = $resultat["admin"];
                 $_SESSION["userPrenom"] = $resultat["prenom"];
-                include('../view/Accueil.php');
+                header ('Location: ../view/Accueil.php');
+               
         }
 
         elseif (!$resultat)
