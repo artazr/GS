@@ -17,7 +17,6 @@ $erreur = "remplissez bien tous les champs ;)";
               $location      = htmlspecialchars($_POST["location"]);
               $city      = htmlspecialchars($_POST["city"]);
               $description      = htmlspecialchars($_POST["description"]);
-              $image_nom    = $_FILES['fichier']['name'];
         // Remplissage de la base de donnée          
         $req = $bdd->prepare('INSERT INTO annonce(title, name, prenomPost, category, location, city, description, date_mise_en_ligne, image_nom) VALUES(:title, :name, :prenomPost, :category, :location, :city, :description, CURDATE(), :image_nom)');
 
@@ -44,21 +43,24 @@ $erreur = "remplissez bien tous les champs ;)";
                     
                     //$image_sizes = getimagesize($_FILES['fichier']['tmp_name']);
 
-                    if ($image_sizes[0] > $maxwidth OR $image_sizes[1] > $maxheight) $erreur = "Image trop grande";
+                   // if ($image_sizes[0] > $maxwidth OR $image_sizes[1] > $maxheight) $erreur = "Image trop grande";
 
                       mkdir('../images/'.$_SESSION["userPrenom"].'/annonce_upload', 0777, true);
 
                      $upload_dir = '/../images/'.$_SESSION["userPrenom"].'/annonce_upload';
-                    $resultat = move_uploaded_file($image_nom, $upload_dir);
-                    if ($resultat!=FALSE)
-                    {
-                        $erreur = "Votre Annonce à bien été Postée ! ";
-           
-                    }
+                     if(is_uploaded_file($_FILES['fichier']['tmp_name']))
+                          if(move_uploaded_file($_FILES['fichier']['tmp_name'], $upload_dir))
+                          {
+                              $erreur = "Votre Annonce à bien été Postée ! ";
+                          }
+                          else
+                          {
+                              $erreur= "fichier non enregistré";
+                          }
                     else
-                    {
-                        $erreur= "problème en vu";
-                    }
+                      {
+                        $erreur= "fichier non uploadé";
+                      }
                // }
                
                        
