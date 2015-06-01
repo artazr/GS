@@ -342,8 +342,9 @@ menu button:hover {
 }
 
 #accueil img{
-	max-width: 80%;
+	max-width: 30%;
 	height: auto;
+	max-height: 200px;
 }
 
 

@@ -30,7 +30,7 @@ $erreur = "remplissez bien tous les champs ;)";
             'location' => $location,
             'city' => $city,
             'description'=> $description,
-            'image_nom'=>$image_nom
+            'image_nom'=>$_FILES['fichier']['name']
             )); 
 
                 
@@ -45,20 +45,25 @@ $erreur = "remplissez bien tous les champs ;)";
 
                    // if ($image_sizes[0] > $maxwidth OR $image_sizes[1] > $maxheight) $erreur = "Image trop grande";
 
-                      mkdir('../images/'.$_SESSION["userPrenom"].'/annonce_upload', 0777, true);
+                     // mkdir('images/'.$_SESSION["userPrenom"].'/annonce_upload', 0777, true);
 
-                     $upload_dir = '/../images/'.$_SESSION["userPrenom"].'/annonce_upload';
+                    // $upload_dir = 'images/'.$_SESSION["userPrenom"].'/annonce_upload';
+
                      if(is_uploaded_file($_FILES['fichier']['tmp_name']))
-                          if(move_uploaded_file($_FILES['fichier']['tmp_name'], $upload_dir))
+                         
+                          if(move_uploaded_file($_FILES['fichier']['tmp_name'], $_FILES['fichier']['name']))
                           {
+
                               $erreur = "Votre Annonce à bien été Postée ! ";
                           }
                           else
                           {
+                             
                               $erreur= "fichier non enregistré";
                           }
                     else
                       {
+
                         $erreur= "fichier non uploadé";
                       }
                // }
