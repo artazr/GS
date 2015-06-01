@@ -18,7 +18,7 @@ $erreur = "remplissez bien tous les champs ;)";
               $city      = htmlspecialchars($_POST["city"]);
               $description      = htmlspecialchars($_POST["description"]);
         // Remplissage de la base de donnée          
-        $req = $bdd->prepare('INSERT INTO annonce(title, name, prenomPost, category, location, city, description, date_mise_en_ligne, image_nom) VALUES(:title, :name, :prenomPost, :category, :location, :city, :description, CURDATE(), :image_nom)');
+        $req = $bdd->prepare('INSERT INTO annonce(title, name, prenomPost, prenomPostEmail, category, location, city, description, date_mise_en_ligne, image_nom) VALUES(:title, :name, :prenomPost, :prenomPostEmail, :category, :location, :city, :description, CURDATE(), :image_nom)');
 
         if (!empty($_POST['title']) && !empty($_POST['name']) && !empty($_POST['category']) && 
           !empty($_POST['location']) && !empty($_POST['city']) && !empty($_POST['description']) )
@@ -27,6 +27,7 @@ $erreur = "remplissez bien tous les champs ;)";
             'title' => $title,
             'name' => $name,
             'prenomPost'=>$_SESSION['userPrenom'],
+            'prenomPostEmail'=>$_SESSION['userMail'],
             'category' => $category,
             'location' => $location,
             'city' => $city,

@@ -11,7 +11,7 @@ while ($donnees = $reponse->fetch())
 	if($_SESSION['userMail']==$donnees['emaildestinataire']){
 {
 	echo'<hr>';
-	echo $_SESSION['userMail'];
+	echo 'Votre Email : ' .$_SESSION['userMail'];
 	echo '<div id="recu"> Vous avez reçu un message de : <strong>' .$donnees['email'] .
 	'</strong><br /> Objet : <strong>'.$donnees['objet']. 
 	'</strong><br /> Message : <strong>' .$donnees['message'] . 
