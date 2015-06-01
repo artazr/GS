@@ -14,13 +14,13 @@
 
                    
                         
-                            <input type="text" class="text" name="title" placeholder="Titre de l'annonce" />
+                            <input type="text" class="text" name="title" placeholder="Titre de l'annonce *" />
                         
                        
-                            <input type="text" class="text" name="name" placeholder="Nom du produit" />
+                            <input type="text" class="text" name="name" placeholder="Nom du produit *" />
                        
                        
-                            <SELECT name="category" placeholder="Catégorie du produit" >
+                            <SELECT name="category" placeholder="Catégorie du produit *" >
                             <OPTION selected>-- Catégorie --
                             <OPTION>fruit
                             <OPTION>légumes
@@ -29,13 +29,13 @@
                             </SELECT>
                          
                       
-                            <input type="text" class="text" name="location" placeholder="Région" />
+                            <input type="text" class="text" name="location" placeholder="Région *" />
                        
                        
-                            <input type="text" class="text" name="city" placeholder="Ville" />
+                            <input type="text" class="text" name="city" placeholder="Ville *" />
                       
                         
-                            <textarea type="text" class="text" name="description" placeholder="   Description"></textarea>
+                            <textarea type="text" class="text" name="description" placeholder="   Description *"></textarea>
                             
                             <p>
                 Ajoutez une photo de votre produit (max 1Mo): <br />

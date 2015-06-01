@@ -9,7 +9,7 @@ $erreur = "remplissez bien tous les champs ;)";
 
 
     //Vérification de l'existence des variables
-    if (!empty($_POST['title']) && !empty($_POST['name']) && !empty($_POST['category'])&& !empty($_POST['location']) && !empty($_POST['city']) && !empty($_POST['description']) )  
+    if (isset($_POST['upload']))  
     {
               $title     = htmlspecialchars($_POST["title"]);
               $name     = htmlspecialchars($_POST["name"]);
@@ -20,7 +20,8 @@ $erreur = "remplissez bien tous les champs ;)";
         // Remplissage de la base de donnée          
         $req = $bdd->prepare('INSERT INTO annonce(title, name, prenomPost, category, location, city, description, date_mise_en_ligne, image_nom) VALUES(:title, :name, :prenomPost, :category, :location, :city, :description, CURDATE(), :image_nom)');
 
-        if (isset($_POST['upload']))
+        if (!empty($_POST['title']) && !empty($_POST['name']) && !empty($_POST['category']) && 
+          !empty($_POST['location']) && !empty($_POST['city']) && !empty($_POST['description']) )
             {
                 $req->execute(array(
             'title' => $title,
@@ -34,7 +35,7 @@ $erreur = "remplissez bien tous les champs ;)";
             )); 
 
                 
-              //  $extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
+               //$extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
                 //$extension_upload = strtolower( strrchr($_FILES['fichier']['name'], '.'));
                    
              //   if ( in_array($extension_upload,$extensions_valides) ) 
