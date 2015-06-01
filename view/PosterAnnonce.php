@@ -8,9 +8,9 @@
                 <h2>Formulaire de mise en ligne d'annonces:</h2>
                 <span>Mettez en ligne votre produit !</span> 
             </div>
-<?php echo $erreur; ?>
+<?php echo $erreur;?>
             <div >
-                <form method="post" >
+                <form method="post" enctype='multipart/form-data' >
 
                    
                         
@@ -38,8 +38,9 @@
                             <textarea type="text" class="text" name="description" placeholder="   Description"></textarea>
                             
                             <p>
-                Ajoutez une photo de votre produit : <br />
-                <input type="file" name="monfichier" /><br />
+                Ajoutez une photo de votre produit (max 1Mo): <br />
+                <input type="hidden" name="MAX_FILE_SIZE" value="1048576">
+                <input type="file" name="fichier" /><br />
                 
                 
         </p>

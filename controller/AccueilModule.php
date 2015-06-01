@@ -14,7 +14,8 @@ while ($donnees = $reponse->fetch())
 	 '</strong><br /> Région de disponibilité : <strong>'.$donnees['location']. 
 	 '</strong><br /> Ville où le produit est disponible : <strong>' .$donnees['city'] . 
 	 '</strong><br /> IMAGE : <strong>' .$donnees['image_nom'] . 
-	 '</strong><br /> Description du produit : <strong>'.$donnees['description'].'</strong></div> <br />';
+	 '</strong><br /> <img src="../images/'.$donnees['prenomPost'].'/'.$donnees['image_nom'].'">
+	 </strong><br /> Description du produit : <strong>'.$donnees['description'].'</strong></div> <br />';
 	
 }
 

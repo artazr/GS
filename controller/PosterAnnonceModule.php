@@ -2,10 +2,12 @@
 //on inclut la page qui nous permet de nous connecter à la base de donnée
 include('../model/bdd.php');
 
-$maxsize= 2000000;
-$maxwidth = 300;
-$maxheight=300;
-$erreur = "";
+$maxwidth= 1048576;
+$maxheight= 1048576;
+$erreur = "remplissez bien tous les champs ;)";
+
+
+
     //Vérification de l'existence des variables
     if (!empty($_POST['title']) && !empty($_POST['name']) && !empty($_POST['category'])&& !empty($_POST['location']) && !empty($_POST['city']) && !empty($_POST['description']) )  
     {
@@ -15,49 +17,50 @@ $erreur = "";
               $location      = htmlspecialchars($_POST["location"]);
               $city      = htmlspecialchars($_POST["city"]);
               $description      = htmlspecialchars($_POST["description"]);
+              $image_nom    = $_FILES['fichier']['name'];
         // Remplissage de la base de donnée          
-        $req = $bdd->prepare('INSERT INTO annonce(title, name, category, location, city, description, date_mise_en_ligne) VALUES(:title, :name, :category, :location, :city, :description, CURDATE())');
-        $req->execute(array(
+        $req = $bdd->prepare('INSERT INTO annonce(title, name, prenomPost, category, location, city, description, date_mise_en_ligne, image_nom) VALUES(:title, :name, :prenomPost, :category, :location, :city, :description, CURDATE(), :image_nom)');
+
+        if (isset($_POST['upload']))
+            {
+                $req->execute(array(
             'title' => $title,
             'name' => $name,
+            'prenomPost'=>$_SESSION['userPrenom'],
             'category' => $category,
             'location' => $location,
             'city' => $city,
-            'description'=> $description
+            'description'=> $description,
+            'image_nom'=>$image_nom
             )); 
-            //Vérification de la similitude du mot de passe
-        if (!empty($_POST['title']) && !empty($_POST['name'])&& !empty($_POST['category']) && !empty($_POST['location']) && !empty($_POST['city']) && !empty($_POST['description']))
-            {
-                if ($_FILES['icone']['error'] > 0) {$erreur = "Erreur lors du transfert";}
+
                 
-                if ($_FILES['icone']['size'] > $maxsize) {$erreur = "Le fichier est trop gros";}
-
-
-                $extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
-                //1. strrchr renvoie l'extension avec le point (« . »).
-                //2. substr(chaine,1) ignore le premier caractère de chaine.
-                //3. strtolower met l'extension en minuscules.
-                $extension_upload = strtolower(  substr(  strrchr($_FILES['icone']['name'], '.')  ,1)  );
+              //  $extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
+                //$extension_upload = strtolower( strrchr($_FILES['fichier']['name'], '.'));
                    
-                if ( in_array($extension_upload,$extensions_valides) ) {$erreur =  "Extension correcte";}
+             //   if ( in_array($extension_upload,$extensions_valides) ) 
+               // {
 
+                    
+                    //$image_sizes = getimagesize($_FILES['fichier']['tmp_name']);
 
-                $image_sizes = getimagesize($_FILES['icone']['tmp_name']);
-                
-                if ($image_sizes[0] > $maxwidth OR $image_sizes[1] > $maxheight) {$erreur = "Image trop grande";}
-                //Créer un dossier 
-                  mkdir('../images/$_SESSION["userPrenom"]', 0777, true);
-                 
-                //Créer un identifiant difficile à deviner
-                  $image_nom = rand()."-".$_FILES['icone']['tmp_name'];
-                //$nom = "avatars/{$id_membre}.{$extension_upload}";
-                $resultat = move_uploaded_file($_FILES['icone']['tmp_name'],$image_nom);
-                if ($resultat)
-                    $erreur = "Votre Annonce à bien été Postée ! ";
-       
- $q = 'UPDATE annonce SET image_nom="'.$image_nom.'" WHERE id=LAST_INSERT_ID()';
- $query=$bdd->query($q);
-       
+                    if ($image_sizes[0] > $maxwidth OR $image_sizes[1] > $maxheight) $erreur = "Image trop grande";
+
+                      mkdir('../images/'.$_SESSION["userPrenom"].'/annonce_upload', 0777, true);
+
+                     $upload_dir = '/../images/'.$_SESSION["userPrenom"].'/annonce_upload';
+                    $resultat = move_uploaded_file($image_nom, $upload_dir);
+                    if ($resultat!=FALSE)
+                    {
+                        $erreur = "Votre Annonce à bien été Postée ! ";
+           
+                    }
+                    else
+                    {
+                        $erreur= "problème en vu";
+                    }
+               // }
+               
                        
             }
             elseif ( empty($_POST['title']))
