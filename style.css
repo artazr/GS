@@ -87,6 +87,40 @@ margin: 0;
         box-shadow: 0 0 2px 1px #E0E0E0;
         background: #ffffff;
     }
+
+
+	form input.text2, form select, form textarea
+    {
+        position: relative;
+        display: block;
+        border: 0;
+        background: rgba(0,0,0,0.1);
+        width: 30%;
+        margin: 1em 23em;
+        padding: 1em 7em;
+        font-family: 'Pontano Sans', sans-serif;
+        font-size: 1.2em;
+        outline: none;
+    }		
+
+    form textarea.text2		
+{
+        position: relative;
+        display: block;
+        border: 0;
+        background: rgba(0,0,0,0.1);
+        width: 30%;
+        margin: 1em 23em;
+        padding: 4em 7em;
+        font-family: 'Pontano Sans', sans-serif;
+        font-size: 1.2em
+        outline: none;
+    }	
+     form input.text2:focus, form select:focus, form textarea:focus
+	{
+        box-shadow: 0 0 2px 1px #E0E0E0;
+        background: #ffffff;
+    }
 					
    
 
@@ -599,6 +633,22 @@ menu button:hover {
 	}
 
 	#formulaire form textarea
+	{
+		min-width:700px;
+		max-width: 700px;
+		min-height: 200px;
+		max-height: 600px;
+		margin: 0px auto;
+		margin-bottom: 20px;
+		position: relative;
+	}
+
+
+
+	
+
+
+	#formulaireContact form textarea
 	{
 		min-width:700px;
 		max-width: 700px;

@@ -7,16 +7,12 @@ Vous pouvez poster des annonces sur des produits que vous voulez vendre et reche
 <br />
  <div id="carrousel">
         <ul>
-            <li><img src="banane.jpg"/></li>
-            <li><img src="carotte.jpg"/></li>
-            <li><img src="pomme.jpg"/></li>
-            <li><img src="pomme.jpg"/></li>
-            <li><img src="carotte.jpg"/></li>
-            <li><img src="raisin.jpg"/></li>
-            <li><img src="pomme.jpg"/></li>
+            <li><img src="../images/fruit.jpg"/></li>
+            <li><img src="../images/banane.jpg"/></li>
+            <li><img src="../images/carotte.jpg"/></li>
+            <li><img src="../images/pomme.jpg"/></li>
+            <li><img src="../images/raisin.jpg"/></li>
         <li><img src="http://upload.wikimedia.org/wikipedia/commons/b/b1/Male_mallard_standing.jpg" /></li>
-    <li><img src="http://www.automobile-magazine.fr/var/automobile_magazine/storage/images/actualites/scoops/bmw/futur_bmw_x3/2009504-1-fre-FR/futur_bmw_x3_reference.jpg" /></li>
-    <li><img src="http://www.moto-scooter-reparation-beauvais.fr/img/photos/zoom/01.jpg" /></li>
     </ul>
 </div>
 <!-- on inclut la bibliothèque depuis les serveurs de Google -->
