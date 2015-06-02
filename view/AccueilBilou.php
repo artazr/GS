@@ -1,22 +1,11 @@
 <?php include ('header.php'); ?>
 
 <div id="presentation">
-    <p><strong>Bonjour et bienvenue sur notre site de partage et de troc de fruits et légumes.
-Vous pouvez poster des annonces sur des produits que vous voulez vendre et rechercher les produits de votre choix.</strong>
-</p>
-<br />
- <div id="carrousel">
-        <ul>
-            <li><img src="banane.jpg"/></li>
-            <li><img src="carotte.jpg"/></li>
-            <li><img src="pomme.jpg"/></li>
-            <li><img src="pomme.jpg"/></li>
-            <li><img src="carotte.jpg"/></li>
-            <li><img src="raisin.jpg"/></li>
-            <li><img src="pomme.jpg"/></li>
-        <li><img src="http://upload.wikimedia.org/wikipedia/commons/b/b1/Male_mallard_standing.jpg" /></li>
-    <li><img src="http://www.automobile-magazine.fr/var/automobile_magazine/storage/images/actualites/scoops/bmw/futur_bmw_x3/2009504-1-fre-FR/futur_bmw_x3_reference.jpg" /></li>
-    <li><img src="http://www.moto-scooter-reparation-beauvais.fr/img/photos/zoom/01.jpg" /></li>
+<div id="carrousel">
+    <ul>
+        <li><img src="http://upload.wikimedia.org/wikipedia/commons/b/b1/Male_mallard_standing.jpg" height="100%" width="100%" /></li>
+    <li><img src="http://www.automobile-magazine.fr/var/automobile_magazine/storage/images/actualites/scoops/bmw/futur_bmw_x3/2009504-1-fre-FR/futur_bmw_x3_reference.jpg" height="100%" width="100%"/></li>
+    <li><img src="http://www.moto-scooter-reparation-beauvais.fr/img/photos/zoom/01.jpg" height="100%" width="100%" /></li>
     </ul>
 </div>
 <!-- on inclut la bibliothèque depuis les serveurs de Google -->
@@ -32,7 +21,7 @@ var $carrousel = $('#carrousel'), // on cible le bloc du carrousel
 $img.css('display', 'none'); // on cache les images
 $currentImg.css('display', 'block'); // on affiche seulement l'image courante
 
-$carrousel.append('<div class="controls"> <span class="prev"></span> <span class="next"></span> </div>');
+$carrousel.append('<div class="controls"> <span class="prev">Precedent</span> <span class="next">Suivant</span> </div>');
 
 $('.next').click(function(){ // image suivante
 
@@ -88,11 +77,6 @@ slideImg(); // enfin, on lance la fonction une première fois
 
 });
 </script>
-</div>
- 
-        </div>
-        <br />
-        
 </div>
 	<div id="annonce">
 	 	<div >

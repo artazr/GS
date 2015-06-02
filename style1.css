@@ -87,10 +87,34 @@ margin: 0;
         box-shadow: 0 0 2px 1px #E0E0E0;
         background: #ffffff;
     }
-					
-   
 
+	form input.text2, form select, form textarea
+    {
+        position: relative;
+        display: block;
+        border: 0;
+        background: rgba(0,0,0,0.1);
+        width: 30%;
+        margin: 1em 23em;
+        padding: 1em 7em;
+        font-family: 'Pontano Sans', sans-serif;
+        font-size: 1.2em;
+        outline: none;
+    }		
 
+    form textarea.text2		
+{
+        position: relative;
+        display: block;
+        border: 0;
+        background: rgba(0,0,0,0.1);
+        width: 30%;
+        margin: 1em 23em;
+        padding: 4em 7em;
+        font-family: 'Pontano Sans', sans-serif;
+        font-size: 1.2em
+        outline: none;
+    }	
 
 /*********************************************************************************/
 /* Social Icon Styles                                                            */
@@ -338,15 +362,6 @@ menu button:hover {
 
 #accueil{
 	margin-left: 30px;
-	
-}
-
-#accueil img{
-	max-width: 30%;
-	height: auto;
-	max-height: 200px;
-	margin-right: 40%;
-	float: right;
 	
 }
 
@@ -681,74 +696,46 @@ menu button:hover {
     }
 
     #presentation {
-    	
+    	margin:40px;
     	text-align: center;
-    	
-    	padding:10px;
+    	border:solid black 1px;
+    	padding:40px;
 
 
     }
-    #carrousel{
+	
+	#carrousel{
     position:relative;
-    height:350px;
-    width:90%;
+    height:200px;
+    width:700px;
     margin:auto;
 	}
-	
-	#carrousel img{
-		
-		max-width : 800px;
-		min-width: 800px;
-		display: block;
-		margin: auto;
-		height: auto;
-		max-height: 350px;
+	#carrousel ul li{
+    position:absolute;
+    top:0;
+    left:0;
 	}
 
-
-
- .next{
-    /* caractéristiques de la flèche "suivant" */
-    position: absolute;
-    top:100px;
-    right:0;
-    height:100px;
-    width:50px;
-    /* mettre ici l'image de la flèche "suivant */
-    background: url('media23.png') right top;
-    background-size:50px 100px;
-    cursor:pointer;
-
+	.carrousel {
+	margin:0;
+	padding:0;
+	height:75px;
 }
- .prev{
-	/* caractéristiques de la flèche "précédent */
-    position: absolute;
-    top:100px;
-    left:0;
-    height:100px;
-    width:50px;
-    /* mettre ici l'image de la flèche "précédent" */
-    background: url('media23.png') left top;
-    background-size:50px 100px;
-    cursor:pointer;
-    transform:rotate(180deg);
-}
-
-.next:hover{
-    /* la flèche se décale de 2 px vers la droite lorsqu'on la survole */
-    background-position:52px top;
-}
-
-.prev:hover{
-    /* la flèche se décale de 2 px vers la gauche lorsqu'on la survole */
-    background-position:2px top;
+.carrousel li {
+	float:left;
+	width:75px;
+	height:75px;
+	margin:0;
+	padding:0;
+	list-style:none;
+	color:#FFF;
+	font:3em/1.2 Georgia, "Times New Roman", Times, serif;
+	text-align:center;
+	background:#C00;
 }
 
 .CGU{
 	margin-left:10%;
 	margin-right:10%;
 }
-	
-	
-
 	

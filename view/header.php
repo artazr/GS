@@ -9,9 +9,9 @@
                 <link href="../style.css" rel="stylesheet" />
                 <link rel="stylesheet" type="text/css" href="style_carrousel3.css"/>
   
-
-                <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
                 <script src="js_carrousel3.js" type="text/javascript"></script>
+                
         
                 <script language="javascript"></script>
 
