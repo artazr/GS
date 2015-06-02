@@ -1,10 +1,8 @@
 <?php include ('header.php'); ?>
 
-//on met ça ou?????
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
- <div id="rechercheAvancee">
+
+ <div id="recherche">
        
             <div class="title">
                 <h2>Recherche Avancée</h2>
@@ -28,6 +26,7 @@
     <?php include('../controller/RechercheAvanceeModule.php'); ?>
 </div>
                 
-                
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
                 
     <?php include ('footer.php'); ?>

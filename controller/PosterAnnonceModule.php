@@ -57,6 +57,23 @@ $erreur = "remplissez bien tous les champs ;)";
                           {
 
                               $erreur = "Votre Annonce à bien été Postée ! ";
+
+                              $reponse = $bdd->query('SELECT * FROM recherche_annonce ');
+                              $donnees = $reponse->fetch();
+                            if($donnees['recherche_annonce']==$title || $donnees['recherche_annonce']==$name )
+                                {
+                                  $to      = $donnees['email'];
+                                 $subject = 'Annonce postée suceptible de vous interresser';
+                                 $message = 'Un annonce à été posté sur notre site et est suceptible de vous interresser';
+                                 $headers = 'From: GreenSwitch';
+                                 'Reply-To: alexmorand26@gmail.com' . "\r\n" .
+                                 'X-Mailer: PHP/' . phpversion();
+    
+         mail($to, $subject, $message, $headers);
+                                }
+
+
+
                           }
                           else
                           {

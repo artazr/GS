@@ -368,6 +368,7 @@ menu button:hover {
 
 	margin:auto;
 	width:98%;
+	text-align: center;
 }
 
 #accueil{
@@ -382,6 +383,10 @@ menu button:hover {
 	margin-right: 40%;
 	float: right;
 	
+}
+#annonce input{
+	width:60%;
+	margin-left: 20%;
 }
 
 
