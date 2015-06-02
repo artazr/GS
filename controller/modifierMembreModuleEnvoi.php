@@ -13,14 +13,13 @@ $age = $_POST["age"];
 $telephone = $_POST["telephone"];
 //récupération de l'identifiant de la personne:
 $id = $_POST["id"];
-echo $_POST["id"];
+
 
 
 $envoimodif = $bdd -> prepare("UPDATE users SET nom = '$nom', prenom = '$prenom', email = '$email', age = '$age', telephone = '$telephone' WHERE id=".$id);
 $envoimodif -> execute();
 
 
-?>
 
-<? echo"OK";
-echo $nom;?>
+header ('Location: ../view/Admin.php');
+?>

@@ -28,7 +28,7 @@
 <header>
             <div>
                 <div id="logo">
-                    <h1><a href="Accueil.php">GreenSwitch</a></h1>
+                    <h1><a href="../view/Accueil.php">GreenSwitch</a></h1>
                     <span>Just Switch it !</span>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                 <ul>
                 
                          <li><a href="../view/Accueil.php" title="">Accueil</a></li>
-                        <li><a href="../view/recherche.php" title="">Rechercher</a></li>
+                        <li><a href="../view/rechercheAvancee.php" title="">Rechercher</a></li>
  
 <?php
        

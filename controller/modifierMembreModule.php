@@ -6,4 +6,8 @@ $user = $bdd->prepare('SELECT prenom, nom, email, age, telephone FROM users WHER
 $user -> execute();
 
 $info = $user -> fetch();
+
+if($_POST['modifier']){
+header('location : ../view/Admin.php');
+}
 ?>	

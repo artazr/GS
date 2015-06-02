@@ -2,14 +2,15 @@
     include("header.php");
 ?>
 
-	<div id="info">
-	 	<div >
+	<div >
+	 
             <div class="title">
                 <h2>Informations</h2>
-                <span>Modifiez le profil</span> 
+                <span>Gerer les membres</span> 
             </div>
-            <div >
+            <div id="AdminModule">
                     <?php include ('../controller/modifierMembreModule.php'); ?>
+
                 <form name="insertion" action="../controller/modifierMembreModuleEnvoi.php" method="POST">
 				   <input type="hidden" name="id" value="<?php echo $_GET['idmembre'];?>">
                    <table border="0" align="center" cellspacing="2" cellpadding="2">

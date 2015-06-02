@@ -10,16 +10,30 @@
                             <input type="text" class="text2" name="title" placeholder="Votre email" />
                         
                        
-                            <input type="text" class="text2" name="name" placeholder="    Objet" />
+                            <input type="text" class="text2" name="Objet" placeholder="Objet" />
 
                             
-                            <textarea type="text" class="text" name="description" placeholder="   Message "></textarea>
+                            <textarea type="text" class="text" name="Message" placeholder="Message "></textarea>
 
-                        </form>
+                        
 
-                        <p style=text-align:center><button type="submit" name="upload" value="Uploader">Envoyer</button></p>
+                        <p style=text-align:center><button type="submit" name="Envoi" value="Envoi">Envoyer</button></p>
+</form>
+<?php
+if ($_POST['Envoi']){
 
+			   $to      = 'alexmorand26@gmail.com';
+		     $subject = $_POST['Objet'];
+		     $message = $_POST['Message'];
+		     $headers = 'From:'.$_POST['title']. "\r\n" .
+		     'Reply-To: alexmorand26@gmail.com' . "\r\n" .
+		     'X-Mailer: PHP/' . phpversion();
+		
+		     mail($to, $subject, $message, $headers);
 
+             header ('Location: ../view/Accueil.php');
+}
+?>
 </div>
 
 <?php include ('footer.php'); ?>

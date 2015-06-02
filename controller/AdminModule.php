@@ -7,8 +7,12 @@ $query->execute();
 
 while($user = $query->fetch())
 {
-    echo($user['nom']." ".$user['prenom']." ".$user['id']." ".$user['admin']);
-    echo(" <a href=\"../view/modifierMembre.php?idmembre=".$user['id']."\">modifier</a> <a href=\"../view/supprimerMembre.php?idmembre=".$user['id']."\">supprimer</a>");
-    echo "</br>";
+	echo'<div id="AdminModule">';
+	
+    echo("Nom : <strong>".$user['nom']."</strong>  &nbsp;&nbsp;&nbsp;&nbsp;   Prenom : <strong>".$user['prenom']."</strong>  &nbsp; &nbsp;&nbsp;&nbsp;  ID : <strong>".$user['id']."</strong>  &nbsp; &nbsp;&nbsp;&nbsp;  Admin :  <strong>".$user['admin']."</strong>");
+   
+   
+    echo(" <a href=\"../view/modifierMembre.php?idmembre=".$user['id']."\"><button>modifier</button></a> <a href=\"../view/supprimerMembre.php?idmembre=".$user['id']."\"><button>supprimer</button></a>");
+    echo "</div></br>";
 }
 ?>

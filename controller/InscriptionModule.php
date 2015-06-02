@@ -43,7 +43,7 @@ cliquez sur le lien à l'intérieur pour confirmer votre inscription. <br />
 Vous allez être redirigé dans 5 secondes . . .";
            
 				
-			 $to      = $email;
+			   $to      = $email;
 		     $subject = 'confirmation de votre inscription';
 		     $message = 'Veuillez cliquer sur le lien ci-dessous pour confirmer votre inscription.';
 		     $headers = 'From: alexmorand26@gmail.com' . "\r\n" .

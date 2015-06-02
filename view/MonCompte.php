@@ -4,7 +4,7 @@
     <?php include ('menu.php'); ?>
 </menu>
 	<div id="info">
-	 	<div >
+	 	<div id="AdminModule">
             <div class="title">
                 <h2>Mes informations</h2>
                 <span>Complétez vos informations pour un profil complet !</span> 
