@@ -1,6 +1,4 @@
-<?php 
-//on inclut la page qui nous permet de nous connecter à la base de donnée
-include('../model/bdd.php');
+<?php include('../model/bdd.php');
 
 $reponse = $bdd->query('SELECT * FROM annonce ORDER BY id DESC');
 

@@ -22,6 +22,13 @@
 		<p>La charte du site doit être connue et respectée par chaque utilisateur du site.</p>
 		<a href="../view/Charte.php"><button>En savoir +</button></a>
 	</div>
+	<div id="tbox4">
+		
+			<h3>FAQ</h3>
+		
+		<p>Vous avez des questions ? Regardez ici, les réponses y sont peut-être déjà !!</p>
+		<a href="../view/faq.php"><button>En savoir +</button></a>
+	</div>
     </footer>
     </body>
 </html>

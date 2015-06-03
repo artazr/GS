@@ -41,16 +41,29 @@ $message=null;
 echo "Vous venez de vous inscrire, Bienvenue !! Un mail vient de vous être envoyé, 
 cliquez sur le lien à l'intérieur pour confirmer votre inscription. <br />
 Vous allez être redirigé dans 5 secondes . . .";
+
+                  if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $mail))
+                  {
+                    $passage_ligne = "\r\n";
+                  }
+                  else
+                  {
+                    $passage_ligne = "\n";
+                  }
            
 				
 			   $to      = $email;
-		     $subject = 'confirmation de votre inscription';
-		     $message = 'Veuillez cliquer sur le lien ci-dessous pour confirmer votre inscription.';
-		     $headers = 'From: alexmorand26@gmail.com' . "\r\n" .
-		     'Reply-To: alexmorand26@gmail.com' . "\r\n" .
-		     'X-Mailer: PHP/' . phpversion();
+		     $subject = 'Inscription GreenSwitch';
+		     $message = 'Bonjour,'.$passage_ligne.'
+         Nous vous envoyons ce mail pour vous souhaiter la bienvenue dans la communautée GreenSwitch.'.$passage_ligne.'
+         N\'hésitez pas à aller vous connecter dès maintenant sur GreenSwitch pour profiter des annonces.
+         '.$passage_ligne.$passage_ligne.'
+         Cordialement,
+        '.$passage_ligne.'
+         L\'équipe GreenSwitch.';
+		     
 		
-		     mail($to, $subject, $message, $headers);
+		     mail($to, $subject, $message);
 
              header ('Location: ../view/InscriptionConnexion.php');
 	            

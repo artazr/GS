@@ -11,7 +11,7 @@
             </div>
             <div >
                     <?php include ('../controller/MonCompteModule.php'); ?>
-                <form name="insertion" action="../view/MonCompteModif.php" method="POST">
+                <form name="insertion" action="../view/MonCompteModif.php" method="POST" enctype='multipart/form-data'>
 				   
                    <table border="0" align="center" cellspacing="2" cellpadding="2">
                    	<tr align="center">
@@ -34,14 +34,39 @@
                    		<td>Télephone</td>
                    		<td><input type="text" name="telephone" value="<?php echo($info['telephone']) ;?>"></td>
                    	</tr>
-                   	<tr align="center">
-                   		<td colspan="2"><input type="submit" value="modifier"></td>
-                   	</tr>
+
+  <tr align="center">
+                      <td colspan="2"><input type="submit" value="modifier"></td>
+                    </tr>
                    </table>
                 </form>
+                <br />
+                
+ <?php $reponse = $bdd->query('SELECT image_nom FROM users WHERE id='.$_SESSION["userID"]);
+ $donnees = $reponse->fetch();
+ echo '<div id="photo">';
+echo 'Image de profil';
+ echo "<img src='../controller/".$donnees['image_nom']."'/>";
+ echo '</div>';
+                ?>
+                
+                      
+                  
+                    <form method="post" action='../view/monCompte.php'  enctype='multipart/form-data'>
+                    
+                      Changer de photo de profil (max 1Mo)
+                      
+                       <input type="file" name="profil" /><br />
+                    
+                     <button type="submit" name="upload" value="Uploader">Poster</button>
+                      <?php include ('../controller/photoprofil.php'); ?>
+                   </form>
             </div>
         </div>
 	</div>
 
     <br />
+
+    
+        <?php include ('footer.php'); ?>
     

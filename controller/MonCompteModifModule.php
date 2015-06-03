@@ -16,7 +16,8 @@ $id = $_POST["id"];
 
 
 
-$envoimodif = $bdd -> prepare("UPDATE users SET nom = '$nom', prenom = '$prenom', email = '$email', age = '$age', telephone = '$telephone' WHERE id=".$_SESSION["userID"]);
+
+$envoimodif = $bdd -> prepare("UPDATE users SET nom = '$nom', prenom = '$prenom', email = '$email', age = '$age', telephone = '$telephone'WHERE id=".$_SESSION["userID"]);
 $envoimodif -> execute();
 
 

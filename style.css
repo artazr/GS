@@ -64,7 +64,7 @@ margin: 0;
     form label
     {
         display: block;
-        text-align: left;
+        text-align: center;
         margin-bottom: 0.5em;
     }
 		
@@ -80,6 +80,7 @@ margin: 0;
         font-family: 'Pontano Sans', sans-serif;
         font-size: 1.2em;
         outline: none;
+		text-align:center;
     }
 
     form input.text:focus, form select:focus, form textarea:focus
@@ -481,14 +482,13 @@ menu button:hover {
 		font-size: 75%;
 		color: black;
 	}
-	footer #tbox1,#tbox2,#tbox3
+	footer #tbox1,#tbox2,#tbox3, #tbox4
 	{
 		float: left;
 		
 		text-align: center;
-		width: 300px;
-		margin-left: 70px;
-
+		width: 250px;
+		margin-left: 40px;
 		padding: 20px 10px 20px 10px;
 		
 	}
@@ -645,7 +645,7 @@ menu button:hover {
 		max-width: 700px;
 		min-height: 200px;
 		max-height: 600px;
-		margin: 0px auto;
+		margin-right: 0px auto;
 		margin-bottom: 20px;
 		position: relative;
 	}
@@ -657,14 +657,28 @@ menu button:hover {
 
 	#formulaireContact form textarea
 	{
-		min-width:700px;
-		max-width: 700px;
+		min-width:550px;
+		max-width: 550px;
 		min-height: 200px;
 		max-height: 600px;
-		margin: 0px auto;
+		
 		margin-bottom: 20px;
 		position: relative;
 	}
+	
+	
+	#formulaireContact form 
+    {
+        
+        width: 550px;
+		margin:auto;
+		
+        text-align:center;
+    
+    }
+
+  
+
 
 /*********************************************************************************/
 /* Recherche                                                               */
@@ -836,6 +850,16 @@ menu button:hover {
 	color:white;
 }
 
+
+#photo img{
+
+	max-width : 300px;
+		min-width: 200px;
+		display: block;
+		margin: auto;
+		height: auto;
+		max-height: 300px;
+}
 
 
 	

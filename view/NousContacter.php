@@ -4,13 +4,13 @@
 
 <p style=text-align:center>Pour toute question, n'hésitez pas à contacter notre service clientèle en remplissant le formulaire ci-dessous.</p>
 <div id ="formulaireContact">
-<form method="post" action="../controller/PosterAnnonceModule.php">
+<form method="post" action="../view/NousContacter.php">
                     
                         
-                            <input type="text" class="text2" name="title" placeholder="Votre email" />
+                            <input type="text" class="text" name="email" placeholder="Votre email" />
                         
                        
-                            <input type="text" class="text2" name="Objet" placeholder="Objet" />
+                            <input type="text" class="text" name="Objet" placeholder="Objet" />
 
                             
                             <textarea type="text" class="text" name="Message" placeholder="Message "></textarea>
@@ -22,14 +22,21 @@
 <?php
 if ($_POST['Envoi']){
 
+	if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $mail))
+                  {
+                    $passage_ligne = "\r\n";
+                  }
+                  else
+                  {
+                    $passage_ligne = "\n";
+                  }
+
 			   $to      = 'alexmorand26@gmail.com';
 		     $subject = $_POST['Objet'];
 		     $message = $_POST['Message'];
-		     $headers = 'From:'.$_POST['title']. "\r\n" .
-		     'Reply-To: alexmorand26@gmail.com' . "\r\n" .
-		     'X-Mailer: PHP/' . phpversion();
+		    
 		
-		     mail($to, $subject, $message, $headers);
+		     mail($to, $subject, $message);
 
              header ('Location: ../view/Accueil.php');
 }

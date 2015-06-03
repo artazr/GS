@@ -41,7 +41,7 @@
  
 <?php
        
-        if(!isset($_SESSION["userID"]) && $_SESSION["userID"]==NULL)
+        if(!isset($_SESSION["userID"]))
                 {
                     echo "<li><a href=\"../view/InscriptionConnexion.php\">Inscription/Connexion</a></li>";
                 }

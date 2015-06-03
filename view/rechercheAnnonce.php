@@ -1,7 +1,9 @@
 <?php include ('header.php'); ?>
 
-
-	<div id="annonce" wodth>
+<menu>
+<?php include ('../view/menu.php'); ?>
+</menu>
+	<div id="info">
 	 	<div >
             <div class="title">
                 <h2> Rechercher une Annonce</h2>
@@ -17,6 +19,7 @@
                 
 
                 </form>
+             
 <?php
 include('../model/bdd.php');
  if (isset($_POST['envoi']))  
@@ -35,10 +38,11 @@ include('../model/bdd.php');
     
 ?>
                    
-            </div>
+     </div>
         </div>
-	</div>
+    </div>
 
+    <br />
     <br />
     
         <?php include ('footer.php'); ?>

@@ -62,14 +62,21 @@ $erreur = "remplissez bien tous les champs ;)";
                               $donnees = $reponse->fetch();
                             if($donnees['recherche_annonce']==$title || $donnees['recherche_annonce']==$name )
                                 {
+
+                                  if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $mail))
+                                        {
+                                          $passage_ligne = "\r\n";
+                                        }
+                                        else
+                                        {
+                                          $passage_ligne = "\n";
+                                        }
                                   $to      = $donnees['email'];
                                  $subject = 'Annonce postée suceptible de vous interresser';
-                                 $message = 'Un annonce à été posté sur notre site et est suceptible de vous interresser';
-                                 $headers = 'From: GreenSwitch';
-                                 'Reply-To: alexmorand26@gmail.com' . "\r\n" .
-                                 'X-Mailer: PHP/' . phpversion();
+                                 $message = 'Un annonce à été postée sur notre site et est suceptible de vous interresser';
+                                 
     
-         mail($to, $subject, $message, $headers);
+                                      mail($to, $subject, $message);
                                 }
 
 
