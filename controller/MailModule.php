@@ -19,81 +19,19 @@ include('../model/bdd.php');
             'message' => $message
             )); 
             //Vérification de la similitude du mot de passe
-        if (isset($_POST['valider']) && !empty($_POST['email']) && !empty($_POST['nom'])&& !empty($_POST['emaildestinataire']) && !empty($_POST['objet']) && !empty($_POST['message']))
+        if (isset($_POST['valider']) && !empty($_POST['email']) && !empty($_POST['nom'])&& !empty($_POST['emaildestinataire']) 
+            && !empty($_POST['objet']) && !empty($_POST['message']))
             {
-                echo"Votre message à bien été envoyé ! ";
-?>
-                <script > 
-                    // Redirection vers la page d'accueil         
-                    setTimeout("location.href = '../view/message.php';", 3000);           
-                </script>
-<?php
-            }
-        //Vérification que les champs sont bien tous rempli
-              elseif (isset($_POST['valider']) && ($_POST['nom'])==NULL)
-        
-            {
-                echo"Tu as oublié de rentrer ton nom";
-?>
-                <script >
-                    // Redirection vers la page d'Inscription 
-                    setTimeout("location.href = '../view/newmessage.php';", 3000);
-                </script>
-<?php
-            }
-       elseif (isset($_POST['valider']) && empty($_POST['email']))
-        
-            {
-                echo"Tu as oublié de rentrer ton email";
-?>
-                <script >
-                    // Redirection vers la page d'Inscription 
-                    setTimeout("location.href = '../view/newmessage.php';", 3000);
-                </script>
-<?php
-            }
-             elseif (isset($_POST['valider']) && empty($_POST['emaildestinataire']))
-        
-            {
-                echo"Tu as oublié de rentrer l'email du destinataire";
-?>
-                <script >
-                    // Redirection vers la page d'Inscription 
-                    setTimeout("location.href = '../view/newmessage.php';", 3000);
-                </script>
-<?php
-            }
-             elseif (isset($_POST['valider']) && empty($_POST['objet']))
-        
-            {
-                echo"Tu as oublié de rentrer un objet";
-?>
-                <script >
-                    // Redirection vers la page d'Inscription 
-                    setTimeout("location.href = '../view/newmessage.php';", 3000);
-                </script>
-<?php
-            }
-             elseif (isset($_POST['valider']) && empty($_POST['message']))
-        
-            {
-                echo"Tu as oublié de rentrer le contenu du message";
-?>
-                <script >
-                    // Redirection vers la page d'Inscription 
-                    setTimeout("location.href = '../view/newmessage.php';", 3000);
-                </script>
-<?php
+                $info = "Votre message à bien été envoyé ! ";
             }
         else
             {
-                echo"quelque chose ne vas pas !!";
-?>
-                <script >
-                    // Redirection vers la page d'Inscription 
-                    setTimeout("location.href = '../view/InscriptionConnexion.php';", 3000);
-                </script>
-<?php
+                $info = "Tu as du oublier de remplir un champs.";
+
             }
     }
+
+    include('../view/newmessage.php');
+
+
 ?>

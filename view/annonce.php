@@ -10,8 +10,8 @@
             <div >
                     <ul>
                         <li>
-                            A venir ....
-                            <?php //include ('../controller/annonceModule.php'); ?>
+                        
+                            <?php include ('../controller/annonceModule.php'); ?>
                         </li>
                     </ul> 
             </div>

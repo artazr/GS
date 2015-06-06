@@ -7,7 +7,7 @@ $query->execute();
 
 while($user = $query->fetch())
 {
-	echo'<div id="AdminModule">';
+	echo'<div id="AdminModule1">';
 	
     echo("Nom : <strong>".$user['nom']."</strong>  &nbsp;&nbsp;&nbsp;&nbsp;   Prenom : <strong>".$user['prenom']."</strong>  &nbsp; &nbsp;&nbsp;&nbsp;  ID : <strong>".$user['id']."</strong>  &nbsp; &nbsp;&nbsp;&nbsp;  Admin :  <strong>".$user['admin']."</strong>");
    

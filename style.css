@@ -365,26 +365,126 @@ menu button:hover {
 /*********************************************************************************/
 /* Accueil                                                                       */
 /*********************************************************************************/
+
+
+#welcome{
+	text-align: center;
+	width: 70%;
+	margin: auto;
+}
+
+
+
+
 #annonce{
 
 	margin:auto;
 	width:98%;
-	text-align: center;
+	
 }
 
 #accueil{
-	margin-left: 30px;
+	
+	display: inline-block;
+		margin: 10px;
+		width : 52%;
+
+
+}
+
+#accueilimg{
+	
+	height: auto;
+	width:30%;
+	vertical-align: top;
+	max-height: 300px;
+	float: right;
+	margin-right: 10%;
 	
 }
 
-#accueil img{
-	max-width: 30%;
+#accueilimg img{
+	
 	height: auto;
+	width:auto;
+	max-width: 300px;
 	max-height: 200px;
-	margin-right: 40%;
-	float: right;
+	margin : 10px;
+}
+
+
+
+	#accueilimg2 {
+	height: auto;
+	width:auto;
+	max-width: 300px;
+	vertical-align: top;
+	max-height: 300px;
+	float: left;
+	margin: 10px;
+	
 	
 }
+
+#accueilimg2 img {
+	height: auto;
+	width:auto;
+	vertical-align: top;
+	max-height: 300px;
+
+	
+}
+
+#accueilimg1 {
+	height: auto;
+	width:auto;
+	max-width: 400px;
+	margin-right: 10%;
+	vertical-align: top;
+	max-height: 300px;
+	float: right;
+	
+	
+}
+
+#accueilimg1 img{
+	height: auto;
+	width:auto;
+	max-width: 400px;
+	vertical-align: top;
+	max-height: 300px;
+		
+
+	
+}
+
+#descriptionAnnonce{
+	display: inline-block;
+	margin-left: 70px;
+	margin-top: 50px;
+
+
+}
+
+	
+
+#annonce{
+	display: inline-block;
+		margin: 10px;
+		width : 98%;
+
+}
+
+#lienPageMessage{
+	text-align: center;
+	margin: auto;
+}
+#lienPageAnnonce{
+	text-align: center;
+	margin: auto;
+}
+
+
 #annonce input{
 	width:60%;
 	margin-left: 20%;
@@ -828,6 +928,37 @@ menu button:hover {
 #AdminModule{
 	text-align: center;
 }
+
+
+#AdminModule1{
+	text-align: center;
+	width :45%;
+	margin: auto;
+}
+
+
+#AdminModule1 button 
+	{
+		
+		display: inline-block;
+		margin:10px;
+		padding: 0px;
+		text-decoration: none;
+		font-size: 0.90em;
+		text-transform: uppercase;
+		outline: 0;
+		color: white;
+		border:0;
+		background-color: #27AE60;
+		border-radius: 20px;
+	}
+		
+#AdminModule1 button:hover {
+	background-color: #87591A;
+	color:white;
+}
+
+
 #AdminModule button 
 	{
 		

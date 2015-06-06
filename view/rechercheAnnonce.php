@@ -1,10 +1,30 @@
-<?php include ('header.php'); ?>
+<?php include ('header.php');
+include('../model/bdd.php'); 
 
-<menu>
+$req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["userID"]);
+
+                $req->execute(array(
+                    'admin' => $admin,
+                        ));
+                $resultat = $req->fetch();
+
+                $is_admin = $resultat['admin'];
+                
+
+        if(isset($_SESSION["userID"])==NULL)
+                {
+                    echo "Vous n'avez pas les droit nécessaires !!!! ";
+                    include ('../view/footer.php'); 
+                }
+        
+         else
+                {
+                    ?>
+                    <menu>
 <?php include ('../view/menu.php'); ?>
 </menu>
-	<div id="info">
-	 	<div >
+    <div id="info">
+        <div >
             <div class="title">
                 <h2> Rechercher une Annonce</h2>
                 <span>Soyez informez par mail dès qu'une annonce postée comportera l'intitulé de votre recherche</span> 
@@ -44,6 +64,10 @@ include('../model/bdd.php');
 
     <br />
     <br />
-    
-        <?php include ('footer.php'); ?>
+  
+        <?php include ('footer.php'); 
+                }
+
+        
+   ?>
 

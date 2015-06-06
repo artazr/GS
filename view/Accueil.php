@@ -12,10 +12,9 @@ Vous pouvez poster des annonces sur des produits que vous voulez vendre et reche
             <li><img src="../images/carotte.jpg"/></li>
             <li><img src="../images/pomme.jpg"/></li>
             <li><img src="../images/raisin.jpg"/></li>
-        <li><img src="http://upload.wikimedia.org/wikipedia/commons/b/b1/Male_mallard_standing.jpg" /></li>
     </ul>
 </div>
-<!-- on inclut la bibliothèque depuis les serveurs de Google -->
+<!--on inclut la bibliothèque depuis les serveurs de Google--> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script>$(document).ready(function(){
     
@@ -47,7 +46,7 @@ $('.next').click(function(){ // image suivante
 
 $('.prev').click(function(){ // image précédente
 
-    i--; // on décrémente le compteur, puis on réalise la même chose que pour la fonction "suivante"
+     // on décrémente le compteur, puis on réalise la même chose que pour la fonction "suivante"
 
     if( i >= 0 ){
         $img.css('display', 'none');

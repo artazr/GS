@@ -1,26 +1,70 @@
-<?php 
+<?php include ('../view/header.php'); ?>
+
+
+	<div id="annonce">
+            <div class="title">
+                <h2> Annonce</h2>
+                <span>Regardez le détail de l'annonce ! </span> 
+            </div>
+            <div>
+            <?php include('../model/bdd.php'); 
 //on inclut la page qui nous permet de nous connecter à la base de donnée
-include('../model/bdd.php');
-if($_POST['valider'])
+if(isset($_POST['valider']))
 {
-	$reponse = $bdd->prepare('SELECT * FROM annonce WHERE id= "$_POST['id']"');
-	$resultat=$reponse->fetch();
 
+	$reponse = $bdd->query('SELECT * FROM annonce WHERE id = '.$_POST['id']);
 
+while($donnees = $reponse->fetch())
+{
+	$rep = $bdd->query("SELECT email, image_name FROM users WHERE email= '".$donnees['prenomPostEmail']."'");
 
-		echo'<hr>';
-		echo '<div id="accueil"> Titre de l\'annonce : <strong>'.$resultat['title'] .
-		
-		 '</strong><br /> Nom du Vendeur : <strong>'.$resultat['prenomPost'].
-		 '</strong><br /> Email du Vendeur : <strong>'.$resultat['prenomPostEmail'].
-		 '</strong><br /> Nom du produit : <strong>'.$resultat['name']. 
-		'</strong><br /> catégorie de produit : <strong>' .$resultat['category'] . 
-		 '</strong><br /> Région de disponibilité : <strong>'.$resultat['location'].'</strong>'
-		'</strong><br /> Ville où le produit est disponible : <strong>' .$resultat['city'] .
-		 '</strong><br /> <img src=" ../controller/'.$resultat['image_nom'].'"/>
-		 </strong><br /> Description du produit : <strong>'.$resultat['description'].'</strong>'; 
+$resultat= $rep->fetch();
+
+{
+
+?>
+<div>
+	<hr>
+<div id="annonce"> 
+<div id ="accueilimg2"><img src=" ../controller/<?php echo $resultat['image_name'] ?>" alt="vendeur"/> </strong> 
+	 </div>
+	<div id ="accueilimg1">
+	 <br /> <img src=" ../controller/<?php  echo $donnees['image_nom'] ?>" alt="produit"/> </strong></div>
+	
+
+	  <br />
+
+<div id="descriptionAnnonce">
+		Titre de l'annonce : <strong><?php echo $donnees['title'] ?> </strong>
+	
+	<br /> Nom du Vendeur : <strong><?php echo $donnees['prenomPost'] ?> </strong>
+	<br /> Email du Vendeur : <strong><?php echo $donnees['prenomPostEmail'] ?> </strong>
+	
+	<br /> Nom du produit : <strong><?php echo $donnees['name'] ?> </strong>
+	<br /> catégorie de produit : <strong><?php echo $donnees['category'] ?></strong>
+	
+	<br /> Région de disponibilité : <strong><?php echo $donnees['location'] ?> </strong>
+	<br /> Ville où le produit est disponible : <strong> <?php echo $donnees['city'] ?></strong>
+	
+	<br /> Description du produit : <strong> <?php echo $donnees['description']?> </strong>
+</div>
+	
+	 <?php 
+	}
 }
-else{
-
 }
 	 ?>
+
+
+            </div>
+        </div>
+
+       <div id="lienPageMessage">
+       <a href="../view/newmessage.php"><button type="submit" >envoyer un mail au vendeur</button></a>
+			
+       </div>
+	
+</div>
+    <br />
+    
+        <?php include ('../view/footer.php'); ?>

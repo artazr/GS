@@ -2,8 +2,7 @@
 //on inclut la page qui nous permet de nous connecter à la base de donnée
 include('../model/bdd.php');
 
-$maxwidth= 1048576;
-$maxheight= 1048576;
+
 $erreur = "remplissez bien tous les champs ;)";
 
 
@@ -36,23 +35,12 @@ $erreur = "remplissez bien tous les champs ;)";
             )); 
 
                 
-               //$extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
-                //$extension_upload = strtolower( strrchr($_FILES['fichier']['name'], '.'));
+               $extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
+                $extension_upload = strtolower( strrchr($_FILES['fichier']['name'], '.'));
                    
-             //   if ( in_array($extension_upload,$extensions_valides) ) 
-               // {
-
-                    
-                    //$image_sizes = getimagesize($_FILES['fichier']['tmp_name']);
-
-                   // if ($image_sizes[0] > $maxwidth OR $image_sizes[1] > $maxheight) $erreur = "Image trop grande";
-
-                     // mkdir('images/'.$_SESSION["userPrenom"].'/annonce_upload', 0777, true);
-
-                    // $upload_dir = 'images/'.$_SESSION["userPrenom"].'/annonce_upload';
-
-                     if(is_uploaded_file($_FILES['fichier']['tmp_name']))
-                         
+              if ( in_array($extension_upload,$extensions_valides) ) 
+               {
+                 
                           if(move_uploaded_file($_FILES['fichier']['tmp_name'], $_FILES['fichier']['name']))
                           {
 
@@ -73,63 +61,19 @@ $erreur = "remplissez bien tous les champs ;)";
                                         }
                                   $to      = $donnees['email'];
                                  $subject = 'Annonce postée suceptible de vous interresser';
-                                 $message = 'Un annonce à été postée sur notre site et est suceptible de vous interresser';
-                                 
-    
-                                      mail($to, $subject, $message);
+                                 $message = 'Un annonce à été postée sur notre site et est suceptible de vous interresser'.$passage_ligne.'
+                                 Rendez vous sur greenswitch !! ';
+                                
+                                    mail ($destinataire, $sujet, $message); // on envois le mail   
                                 }
-
-
-
                           }
                           else
                           {
                              
                               $erreur= "fichier non enregistré";
                           }
-                    else
-                      {
-
-                        $erreur= "fichier non uploadé";
-                      }
-               // }
-               
-                       
-            }
-            elseif ( empty($_POST['title']))
-        
-            {  
-                $erreur = "Tu as oublié de rentrer un titre";
-            }
-            elseif (empty($_POST['name']))
-        
-            {
-                $erreur ="Tu as oublié de rentrer un nom";
-            }
-             elseif (empty($_POST['category']))
-        
-            {
-                $erreur ="Tu as oublié de rentrer la catégorie du produit";
-            }
-             elseif (empty($_POST['location']))
-        
-            {
-                $erreur ="Tu as oublié de rentrer la région dans laquelle sera disponible ton annonce";
-            }
-             elseif (empty($_POST['city']))
-        
-            {
-                $erreur ="Tu as oublié de rentrer la ville dans laquelle sera disponible ton annonce";
-            }
-            elseif (empty($_POST['description']))
-        
-            {
-                $erreur ="Tu as oublié de rentrer une description de ton annonce";
-            }
-            else
-            {
-                $erreur ="quelque chose ne vas pas !!";
-                
+                        
+                }
             }
     }
     include('../view/PosterAnnonce.php');

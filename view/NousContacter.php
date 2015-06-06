@@ -3,6 +3,8 @@
 <h2 style=text-align:center><br>Service clientèle</h2>
 
 <p style=text-align:center>Pour toute question, n'hésitez pas à contacter notre service clientèle en remplissant le formulaire ci-dessous.</p>
+
+<?php echo $info; ?>
 <div id ="formulaireContact">
 <form method="post" action="../view/NousContacter.php">
                     
@@ -34,11 +36,12 @@ if ($_POST['Envoi']){
 			   $to      = 'alexmorand26@gmail.com';
 		     $subject = $_POST['Objet'];
 		     $message = $_POST['Message'];
-		    
+		     $header = "From:". $_POST['email']."\r\n"; 
+         $header .= "Disposition-Notification-To:mon@adressemail.com"; // c'est ici que l'on ajoute la directive
 		
-		     mail($to, $subject, $message);
+		     mail($to, $subject, $message, $header);
 
-             header ('Location: ../view/Accueil.php');
+             $info = "Votre message à bien été envoyé";
 }
 ?>
 </div>

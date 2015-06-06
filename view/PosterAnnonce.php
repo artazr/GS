@@ -1,5 +1,26 @@
-<?php include ('header.php'); ?>
-   
+<?php include ('header.php');
+include('../model/bdd.php'); 
+
+$req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["userID"]);
+
+                $req->execute(array(
+                    'admin' => $admin,
+                        ));
+                $resultat = $req->fetch();
+
+                $is_admin = $resultat['admin'];
+                
+
+        if(isset($_SESSION["userID"])==NULL)
+                {
+                    echo "Vous n'avez pas les droit nécessaires !!!! ";
+                    include ('../view/footer.php'); 
+                }
+        
+         else
+                {
+                    ?>
+
    <menu>
     <?php include ('menu.php'); ?>
 </menu>
@@ -45,8 +66,8 @@
                 
         </p>
                            
-							<br />
-							
+                            <br />
+                            
                         
                    
                     <button type="submit" name="upload" value="Uploader">Poster</button>
@@ -60,5 +81,9 @@
        
     
 </div>
-      <?php include ('footer.php'); ?>
+  
+        <?php include ('footer.php'); 
+                }
 
+        
+   ?>

@@ -4,15 +4,15 @@ include('../model/bdd.php');
 
          $image = $_FILES['profil']['name'];    
 
-                      $req = $bdd->prepare('UPDATE users SET image_nom = \'' . $image . '\'  WHERE id='.$_SESSION["userID"]);
- 					$req->execute(); 
+                      $req = $bdd->prepare('UPDATE users SET image_name = \'' . $image . '\'  WHERE id='.$_SESSION["userID"]);
+ 				
 
                          if(is_uploaded_file($_FILES['profil']['tmp_name']))
                          {
-                          if(move_uploaded_file($_FILES['profil']['tmp_name'], $_FILES['profil']['name']))
+                          if(move_uploaded_file($_FILES['profil']['tmp_name'], $_FILES['profil']['name']) && isset($_POST['upload']))
                           {
-                              echo 'actualisez une autre fois pour faire apparaitre l\'image';
                               
+                                $req->execute(); 
                           }
                           else
                           {

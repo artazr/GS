@@ -2,7 +2,7 @@
 //on inclut la page qui nous permet de nous connecter à la base de donnée
 include('../model/bdd.php');
 
-$reponse = $bdd->query('SELECT message, email, emaildestinataire, objet FROM messages ');
+$reponse = $bdd->query('SELECT message, email, emaildestinataire, objet FROM messages ORDER BY id DESC');
 
 
 
