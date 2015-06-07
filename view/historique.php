@@ -1,6 +1,6 @@
 <?php include ('header.php');
 include('../model/bdd.php'); 
-
+//On vérifie que l'utilisateur à les droits
 $req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["userID"]);
 
                 $req->execute(array(
@@ -32,6 +32,7 @@ $req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["
             <div >
                     <ul>
                         <li>
+                            <!--On inclu la page historiqueModule-->
                             <?php include ('../controller/historiqueModule.php'); ?>
                         </li>
                     </ul> 

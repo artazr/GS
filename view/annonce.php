@@ -10,7 +10,7 @@
             <div >
                     <ul>
                         <li>
-                        
+                            <!-- On inclu la page annonce Module-->
                             <?php include ('../controller/annonceModule.php'); ?>
                         </li>
                     </ul> 

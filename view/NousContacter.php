@@ -8,7 +8,7 @@
 <div id ="formulaireContact">
 <form method="post" action="../view/NousContacter.php">
                     
-                        
+                        <!--Formulaire-->
                             <input type="text" class="text" name="email" placeholder="Votre email" />
                         
                        
@@ -23,7 +23,7 @@
 </form>
 <?php
 if ($_POST['Envoi']){
-
+//Envoi de mail
 	if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $mail))
                   {
                     $passage_ligne = "\r\n";

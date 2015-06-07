@@ -1,6 +1,6 @@
 <?php include ('header.php');
 include('../model/bdd.php'); 
-
+//On vérifie si l'utilisateur à les droits
 $req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["userID"]);
 
                 $req->execute(array(

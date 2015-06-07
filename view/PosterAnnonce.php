@@ -1,6 +1,6 @@
 <?php include ('header.php');
 include('../model/bdd.php'); 
-
+//On vérifie si l'utilisateur à les droits
 $req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["userID"]);
 
                 $req->execute(array(
@@ -31,6 +31,7 @@ $req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["
             </div>
 <?php echo $erreur;?>
             <div >
+                <!--Formulaire-->
                 <form method="post" enctype='multipart/form-data' >
 
                    
@@ -51,14 +52,20 @@ $req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["
                          
                       
                             <input type="text" class="text" name="location" placeholder="Région *" />
-                       
+
                        
                             <input type="text" class="text" name="city" placeholder="Ville *" />
+
+
+                             <input type="text" class="text" name="prix" placeholder="prix *" />
+
+                            <input type="text" class="text" name="quantitee" placeholder="quantitée (précisez l'unité ou la devise)" />
                       
                         
                             <textarea type="text" class="text" name="description" placeholder="   Description *"></textarea>
                             
                             <p>
+                                <!--Formulaire pour la photo du produit -->
                 Ajoutez une photo de votre produit (max 1Mo): <br />
                 <input type="hidden" name="MAX_FILE_SIZE" value="1048576">
                 <input type="file" name="fichier" /><br />
@@ -71,7 +78,7 @@ $req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["
                         
                    
                     <button type="submit" name="upload" value="Uploader">Poster</button>
-                    <!-- Appel de la page php d'inscritpion -->
+                   
                         
                         <br /><br />
                 

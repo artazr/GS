@@ -1,6 +1,6 @@
 <?php include ('header.php');
 include('../model/bdd.php'); 
-
+//On vérifie que l'utilisateur à les droits
 $req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["userID"]);
 
                 $req->execute(array(
@@ -30,7 +30,7 @@ $req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["
                 <span>Soyez informez par mail dès qu'une annonce postée comportera l'intitulé de votre recherche</span> 
             </div>
             <div >
-                    
+                    <!--Formaulaire-->
                            <form method="post" action="rechercheAnnonce.php">
 
                              <input type="text" class="text" name="recherche_annonce" placeholder="Vous êtes intéressez par" />
@@ -42,8 +42,10 @@ $req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["
              
 <?php
 include('../model/bdd.php');
+
  if (isset($_POST['envoi']))  
     {
+                //Déclaration de la variable recherche_annonce
               $recherche_annonce     = htmlspecialchars($_POST["recherche_annonce"]);
         // Remplissage de la base de donnée          
         $req = $bdd->prepare('INSERT INTO recherche_annonce(email, recherche_annonce) VALUES(:email, :recherche_annonce)');

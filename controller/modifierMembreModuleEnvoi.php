@@ -15,7 +15,7 @@ $telephone = $_POST["telephone"];
 $id = $_POST["id"];
 
 
-
+//On met à jour les infos de l'utilisateur
 $envoimodif = $bdd -> prepare("UPDATE users SET nom = '$nom', prenom = '$prenom', email = '$email', age = '$age', telephone = '$telephone' WHERE id=".$id);
 $envoimodif -> execute();
 

@@ -8,14 +8,18 @@
             </div>
             <div>
             <?php include('../model/bdd.php'); 
-//on inclut la page qui nous permet de nous connecter à la base de donnée
+
+//On vérifie que le bouton à bien été séléctionnée
 if(isset($_POST['valider']))
 {
 
+	//On récupère toutes les annonces où l'ID correspond à l'ID transféré via le formulaire caché de la page accueil
 	$reponse = $bdd->query('SELECT * FROM annonce WHERE id = '.$_POST['id']);
 
 while($donnees = $reponse->fetch())
 {
+
+	//on récupère l'email et la photo de profil de la personne qui à posté l'annonce
 	$rep = $bdd->query("SELECT email, image_name FROM users WHERE email= '".$donnees['prenomPostEmail']."'");
 
 $resultat= $rep->fetch();
@@ -26,8 +30,10 @@ $resultat= $rep->fetch();
 <div>
 	<hr>
 <div id="annonce"> 
+	<!--On affiche la photo du vendeur-->
 <div id ="accueilimg2"><img src=" ../controller/<?php echo $resultat['image_name'] ?>" alt="vendeur"/> </strong> 
 	 </div>
+	 <!--On affiche la photo du produit-->
 	<div id ="accueilimg1">
 	 <br /> <img src=" ../controller/<?php  echo $donnees['image_nom'] ?>" alt="produit"/> </strong></div>
 	
@@ -45,6 +51,12 @@ $resultat= $rep->fetch();
 	
 	<br /> Région de disponibilité : <strong><?php echo $donnees['location'] ?> </strong>
 	<br /> Ville où le produit est disponible : <strong> <?php echo $donnees['city'] ?></strong>
+
+		<br /> PRIX : <strong> <?php echo $donnees['prix'] ?> €</strong>
+
+		<br /> Quantitée : <strong> <?php echo $donnees['quantitee'] ?></strong>
+
+
 	
 	<br /> Description du produit : <strong> <?php echo $donnees['description']?> </strong>
 </div>
@@ -58,7 +70,7 @@ $resultat= $rep->fetch();
 
             </div>
         </div>
-
+		<!--On crée un lien vers l'envoi de message interne-->
        <div id="lienPageMessage">
        <a href="../view/newmessage.php"><button type="submit" >envoyer un mail au vendeur</button></a>
 			

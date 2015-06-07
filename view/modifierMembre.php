@@ -1,6 +1,6 @@
 <?php include ('header.php');
 include('../model/bdd.php'); 
-
+//On vérifie que l'utilisateur à les droits
 $req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["userID"]);
 
                 $req->execute(array(
@@ -37,6 +37,7 @@ $req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["
 
 
 <div>
+    <!--Formulaire -->
                             <input type="text" class="text" name="nom" placeholder = "nom" value="<?php echo($info['nom']) ;?>" />
                         </div>
                         <div>

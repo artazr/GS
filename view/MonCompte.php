@@ -1,6 +1,7 @@
 <?php include ('header.php');
 include('../model/bdd.php'); 
 
+//On vérifie que l'utilisateur à les droits
 $req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["userID"]);
 
                 $req->execute(array(
@@ -66,19 +67,19 @@ $req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["
 
                   </form>
            </div>
-
+            <!--On affiche la photo de profil-->
             <?php  $reponse = $bdd->query('SELECT image_name FROM users WHERE id='.$_SESSION["userID"]);
            $donnees = $reponse->fetch();
            echo '<div id="photo">';
            echo 'Image de profil';
-           echo "<img src='../controller/".$donnees['image_name']."'/>";
+           echo "<img src='../view/".$donnees['image_name']."'/>";
            echo '</div>';
                           ?>
         </div>
   </div>
 
     <br />
-                    ?>
+                
   
         <?php include ('footer.php'); 
                 }

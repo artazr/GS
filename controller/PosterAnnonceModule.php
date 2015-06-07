@@ -15,12 +15,14 @@ $erreur = "remplissez bien tous les champs ;)";
               $category     = htmlspecialchars($_POST["category"]);
               $location      = htmlspecialchars($_POST["location"]);
               $city      = htmlspecialchars($_POST["city"]);
+              $prix = htmlspecialchars($_POST["prix"]);
+              $quantitee = htmlspecialchars($_POST["quantitee"]);
               $description      = htmlspecialchars($_POST["description"]);
         // Remplissage de la base de donnée          
-        $req = $bdd->prepare('INSERT INTO annonce(title, name, prenomPost, prenomPostEmail, category, location, city, description, date_mise_en_ligne, image_nom) VALUES(:title, :name, :prenomPost, :prenomPostEmail, :category, :location, :city, :description, CURDATE(), :image_nom)');
+        $req = $bdd->prepare('INSERT INTO annonce(title, name, prenomPost, prenomPostEmail, category, location, city, prix, quantitee, description, date_mise_en_ligne, image_nom) VALUES(:title, :name, :prenomPost, :prenomPostEmail, :category, :location, :city, :prix, :quantitee, :description, CURDATE(), :image_nom)');
 
         if (!empty($_POST['title']) && !empty($_POST['name']) && !empty($_POST['category']) && 
-          !empty($_POST['location']) && !empty($_POST['city']) && !empty($_POST['description']) )
+          !empty($_POST['location']) && !empty($_POST['city']) && !empty($_POST['prix']) && !empty($_POST['description']) )
             {
                 $req->execute(array(
             'title' => $title,
@@ -30,27 +32,30 @@ $erreur = "remplissez bien tous les champs ;)";
             'category' => $category,
             'location' => $location,
             'city' => $city,
+            'prix'=> $prix,
+            'quantitee' => $quantitee,
             'description'=> $description,
             'image_nom'=>$_FILES['fichier']['name']
             )); 
 
+                $erreur = "Votre Annonce à bien été Postée ! ";
                 
                $extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
                 $extension_upload = strtolower( strrchr($_FILES['fichier']['name'], '.'));
                    
               if ( in_array($extension_upload,$extensions_valides) ) 
                {
-                 
+                          //On déplace la photo du produit
                           if(move_uploaded_file($_FILES['fichier']['tmp_name'], $_FILES['fichier']['name']))
                           {
-
-                              $erreur = "Votre Annonce à bien été Postée ! ";
-
+                              //On vérifie si le titre ou le nom de l'annonce ne correspond pas à un mot recherché par un utilisateur
+                                //dans la page et la table recherche annonce
                               $reponse = $bdd->query('SELECT * FROM recherche_annonce ');
                               $donnees = $reponse->fetch();
                             if($donnees['recherche_annonce']==$title || $donnees['recherche_annonce']==$name )
                                 {
-
+                                  //On envoi le mail à l'utilisateur qui a fait la recherche pour l'avertir qu'une annonce à été postée
+                                  // et qui concerne ça recherche
                                   if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $mail))
                                         {
                                           $passage_ligne = "\r\n";

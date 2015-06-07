@@ -41,7 +41,7 @@ $message=null;
 echo "Vous venez de vous inscrire, Bienvenue !! Un mail vient de vous être envoyé, 
 cliquez sur le lien à l'intérieur pour confirmer votre inscription. <br />
 Vous allez être redirigé dans 5 secondes . . .";
-
+                //Envoi de mail
                   if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $mail))
                   {
                     $passage_ligne = "\r\n";
@@ -62,7 +62,7 @@ Vous allez être redirigé dans 5 secondes . . .";
         '.$passage_ligne.'
          L\'équipe GreenSwitch.';
 		     
-		
+		//On envoi le mail
 		     mail($to, $subject, $message);
 
              header ('Location: ../view/InscriptionConnexion.php');

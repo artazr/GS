@@ -4,6 +4,7 @@ include('../model/bdd.php');
     //Vérification de l'existence des variables
     if (!empty($_POST['nom']) && !empty($_POST['email']) && !empty($_POST['emaildestinataire'])&& !empty($_POST['objet']) && !empty($_POST['message']) )  
     {
+                    //Déclaration des variables 
               $nom     = htmlspecialchars($_POST["nom"]);
               $email     = htmlspecialchars($_POST["email"]);
               $emaildestinataire     = htmlspecialchars($_POST["emaildestinataire"]);
@@ -18,10 +19,8 @@ include('../model/bdd.php');
             'objet' => $objet,
             'message' => $message
             )); 
-            //Vérification de la similitude du mot de passe
-        if (isset($_POST['valider']) && !empty($_POST['email']) && !empty($_POST['nom'])&& !empty($_POST['emaildestinataire']) 
-            && !empty($_POST['objet']) && !empty($_POST['message']))
-            {
+            
+                
                 $info = "Votre message à bien été envoyé ! ";
             }
         else
@@ -29,7 +28,7 @@ include('../model/bdd.php');
                 $info = "Tu as du oublier de remplir un champs.";
 
             }
-    }
+    
 
     include('../view/newmessage.php');
 

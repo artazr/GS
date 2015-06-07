@@ -1,5 +1,6 @@
 <?php include('../model/bdd.php'); 
 
+//On vérifie si l'utilisateur connecté à les droits
 $req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["userID"]);
 
                 $req->execute(array(
@@ -21,7 +22,7 @@ $req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["
          			
                     	include('../model/bdd.php');
 
-
+//On supprime l'utilisateur séléctionné
 $user = $bdd->prepare('DELETE FROM users WHERE id='.$_GET['idmembre']);
 $user -> execute();
 
