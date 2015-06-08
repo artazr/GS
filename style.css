@@ -781,7 +781,7 @@ menu button:hover {
     height:100px;
     width:50px;
     /* mettre ici l'image de la flèche "suivant */
-    background: url('images/media23.png') right top;
+    background: url('images/next.png') right top;
     background-size:50px 100px;
     cursor:pointer;
 
@@ -794,10 +794,9 @@ menu button:hover {
     height:100px;
     width:50px;
     /* mettre ici l'image de la flèche "précédent" */
-    background: url('images/media23.png') left top;
+    background: url('images/prev.png') left top;
     background-size:50px 100px;
     cursor:pointer;
-    transform:rotate(180deg);
 }
 
 .next:hover{
