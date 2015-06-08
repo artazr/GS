@@ -18,9 +18,8 @@
             <OPTION value="champignon">champignon
             <OPTION value="autre">autres
         </SELECT>
-       <fieldset>
+       
            <input type="text" name="villes" list="listeVille" placeholder="Ville" id="liste_ville"/>
-        </fieldset>
         <button type="submit" id="valider">Poster</button>        
     </form>
    
