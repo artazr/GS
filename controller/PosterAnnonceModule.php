@@ -40,11 +40,11 @@ $erreur = "remplissez bien tous les champs ;)";
 
                 $erreur = "Votre Annonce à bien été Postée ! ";
                 
-               $extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
-                $extension_upload = strtolower( strrchr($_FILES['fichier']['name'], '.'));
+               //$extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
+                //$extension_upload = strtolower( strrchr($_FILES['fichier']['name'], '.'));
                    
-              if ( in_array($extension_upload,$extensions_valides) ) 
-               {
+              //if ( in_array($extension_upload,$extensions_valides) ) 
+              // {
                           //On déplace la photo du produit
                           if(move_uploaded_file($_FILES['fichier']['tmp_name'], $_FILES['fichier']['name']))
                           {
@@ -78,7 +78,7 @@ $erreur = "remplissez bien tous les champs ;)";
                               $erreur= "fichier non enregistré";
                           }
                         
-                }
+               // }
             }
     }
     include('../view/PosterAnnonce.php');

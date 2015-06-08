@@ -31,7 +31,7 @@ $resultat= $rep->fetch();
 	<hr>
 <div id="annonce"> 
 	<!--On affiche la photo du vendeur-->
-<div id ="accueilimg2"><img src=" ../controller/<?php echo $resultat['image_name'] ?>" alt="vendeur"/> </strong> 
+<div id ="accueilimg2"><img src=" ../view/<?php echo $resultat['image_name'] ?>" alt="vendeur"/> </strong> 
 	 </div>
 	 <!--On affiche la photo du produit-->
 	<div id ="accueilimg1">
