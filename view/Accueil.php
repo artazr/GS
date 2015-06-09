@@ -76,7 +76,7 @@ Vous pouvez poster des annonces sur des produits que vous voulez vendre et reche
 
         slideImg(); // on oublie pas de relancer la fonction à la fin
 
-        }, 4000); // on définit l'intervalle à 2000 millisecondes (7s)
+        }, 4000); // on définit l'intervalle à 2000 millisecondes 
     }
 
     slideImg(); // enfin, on lance la fonction une première fois

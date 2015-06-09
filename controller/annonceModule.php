@@ -52,9 +52,7 @@ $resultat= $rep->fetch();
 	<br /> Région de disponibilité : <strong><?php echo $donnees['location'] ?> </strong>
 	<br /> Ville où le produit est disponible : <strong> <?php echo $donnees['city'] ?></strong>
 
-		<br /> PRIX : <strong> <?php echo $donnees['prix'] ?> €</strong>
-
-		<br /> Quantitée : <strong> <?php echo $donnees['quantitee'] ?></strong>
+		<br /> PRIX et Quantitée : <strong> <?php echo $donnees['prix'];?> €/ <?php echo $donnees['quantitee'];?> Kg </strong>
 
 
 	

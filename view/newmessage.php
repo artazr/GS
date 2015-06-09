@@ -48,7 +48,7 @@ $req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["
                             <input type="text" class="text" name="objet" placeholder="Objet" />
                         </div>
                         <div >
-                            <textarea type="text" class="text" name="message" placeholder="Tapez votre message içi !" /></textarea>
+                            <textarea type="text" class="text" name="message" placeholder="Tapez votre message ici !" /></textarea>
                         </div>
                    
                     

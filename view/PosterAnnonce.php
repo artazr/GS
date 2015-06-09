@@ -57,9 +57,11 @@ $req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["
                             <input type="text" class="text" name="city" placeholder="Ville *" />
 
 
-                             <input type="text" class="text" name="prix" placeholder="prix *" />
+                             <input type="number" class="text2" name="prix" placeholder="prix *" />€/ 
 
-                            <input type="text" class="text" name="quantitee" placeholder="quantitée (précisez l'unité ou la devise)" />
+                             <input type="number" class="text2" name="quantitee" placeholder="quantitée" />Kg
+
+                            
                       
                         
                             <textarea type="text" class="text" name="description" placeholder="   Description *"></textarea>

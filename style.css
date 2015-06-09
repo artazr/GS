@@ -87,7 +87,28 @@
 	{
         box-shadow: 0 0 2px 1px #E0E0E0;
         background: #ffffff;
-    }				
+    }		
+
+       form input.text2, form select, form textarea
+    {
+        position: relative;
+        display: inline-block;
+        border: 0;
+        background: rgba(0,0,0,0.1);
+        width: 45%;
+        margin: 1em 0em;
+        padding: 1em 1em;
+        font-family: 'Pontano Sans', sans-serif;
+        font-size: 1.2em;
+        outline: none;
+		text-align:center;
+    }
+
+    form input.text2:focus, form select:focus, form textarea:focus
+	{
+        box-shadow: 0 0 2px 1px #E0E0E0;
+        background: #ffffff;
+    }			
    
 
 /*********************************************************************************/
@@ -383,6 +404,8 @@ menu button:hover {
 	display: inline-block;
 	margin-left: 70px;
 	margin-top: 50px;
+	width : 50%;
+	
 
 
 }
