@@ -1,10 +1,12 @@
 <?php
         include('../model/bdd.php');
         
-        if(isset($_GET['category']) || isset($_GET['words']))
-        
+        if(isset($_GET['category']) || isset($_GET['words']) || isset($_GET['cities']))
+        {
             $words=$_GET['words'];
+            $city=$_GET['cities'];
             $w=explode(" ", $words);
+            $c=explode(" ", $city);
             $category=$_GET['category'];
             $sql="SELECT * FROM annonce";
             $i=0;
@@ -28,7 +30,7 @@
                 }
             }
         }
-
+           
             if($category != "category")
             {
                 if($i==0)
@@ -43,7 +45,28 @@
                 $sql.=" category LIKE '%$category%'";
                 $i++;
             }
-        
+           
+            if($city != "")
+        {
+            foreach($c as $city)
+            {
+                if(strlen($city)>3)
+                {
+                    if($i==0)
+                    {
+                        $sql.=" WHERE";
+                    }
+                    else
+                    {
+                        $sql.=" AND";
+                    }
+                    $sql.=" city LIKE '%$city%'";
+                    $i++;
+                }
+            }
+        }
+            
+            echo $sql;
         
         if (isset($sql)!=0)
         {
@@ -65,5 +88,6 @@
                  '</strong><br /> Description du produit : <strong>'.$donnees['description'].'</strong></div> <br />';
 
             }
+        }
         }
     ?>
