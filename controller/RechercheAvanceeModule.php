@@ -1,12 +1,14 @@
 <?php
         include('../model/bdd.php');
         
-        if(isset($_GET['category']) || isset($_GET['words']) || isset($_GET['cities']))
+        if(isset($_GET['category']) || isset($_GET['words']) || isset($_GET['cities']) || isset($_GET['department']))
         {
             $words=$_GET['words'];
             $city=$_GET['cities'];
+            $department=$_GET['department'];
             $w=explode(" ", $words);
             $c=explode(" ", $city);
+            $d=explode(" ", $department);
             $category=$_GET['category'];
             $sql="SELECT * FROM annonce";
             $i=0;
@@ -45,6 +47,26 @@
                 $sql.=" category LIKE '%$category%'";
                 $i++;
             }
+
+            if($department != "")
+        {
+            foreach($d as $department)
+            {
+                if(strlen($department)>3)
+                {
+                    if($i==0)
+                    {
+                        $sql.=" WHERE";
+                    }
+                    else
+                    {
+                        $sql.=" AND";
+                    }
+                    $sql.=" location LIKE '%$department%'";
+                    $i++;
+                }
+            }
+        }
            
             if($city != "")
         {
@@ -66,7 +88,6 @@
             }
         }
             
-            echo $sql;
         
         if (isset($sql)!=0)
         {

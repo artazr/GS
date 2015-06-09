@@ -51,7 +51,7 @@ $req = $bdd->prepare('SELECT id, admin, prenom FROM users WHERE id='.$_SESSION["
                             </SELECT>
                          
                       
-                            <input type="text" class="text" name="location" placeholder="Région *" />
+                            <input type="text" class="text" name="location" placeholder="Départment *" />
 
                        
                             <input type="text" class="text" name="city" placeholder="Ville *" />

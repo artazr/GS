@@ -18,7 +18,7 @@
             <OPTION value="champignon">champignon
             <OPTION value="autre">autres
         </SELECT>   
-        <input type="text" class="text" name="region" placeholder="Région"/>
+        <input type="text" class="text" name="department" placeholder="Département"/>
         <input type="text" class="text" name="cities" placeholder="Ville"/>
         <button type="submit" id="valider">Poster</button>
     </form>

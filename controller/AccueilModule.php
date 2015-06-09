@@ -21,7 +21,7 @@ $resultat= $rep->fetch();
 	<br /> Nom du produit : <strong><?php echo $donnees['name'] ?> </strong>
 	<br /> catégorie de produit : <strong><?php echo $donnees['category'] ?></strong>
 	
-	<br /> Région de disponibilité : <strong><?php echo $donnees['location'] ?> </strong>
+	<br /> Département de disponibilité : <strong><?php echo $donnees['location'] ?> </strong>
 	<br /> Ville où le produit est disponible : <strong> <?php echo $donnees['city'] ?></strong>
 
 	<br /> PRIX et Quantitée: <strong> <?php echo $donnees['prix'] ?> € / <?php echo $donnees['quantitee'] ?>Kg</strong>
